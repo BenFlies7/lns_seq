@@ -1,4 +1,5 @@
 #!usr/bin/env python
+# -*- coding: utf-8 -*-
 
 """
 This script parses over a FASTQ file, takes the size of each record

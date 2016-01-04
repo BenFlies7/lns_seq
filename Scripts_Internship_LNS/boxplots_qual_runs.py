@@ -1,6 +1,10 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+"""
+This script computes boxplots of the quality distribution across several runs
+"""
+
 from __future__ import absolute_import, division, print_function
 
 import sys

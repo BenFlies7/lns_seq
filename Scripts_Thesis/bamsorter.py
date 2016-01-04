@@ -24,24 +24,6 @@ def get_basename(name, extensions):
             name = re.sub("%s$" % ext, '', name)
         return name
 
-def aligned_counts(ifile1):
-    '''count how many alignments are aligned back to genome, ifile1 is a sorted bam file'''
-    import HTSeq
-    sortedbamfile= HTSeq.BAM_Reader(ifile1)
-    aligned_counts=0
-    unaligned_counts=0
-    for almnt in sortedbamfile:
-        if almnt.aligned:
-            aligned_counts+= 1
-        else:
-            unaligned_counts+=1
-    sum = float(aligned_counts) + float(unaligned_counts)
-    ratio = (aligned_counts / sum) * float(100)
-    #print "number of aligned tags of %s is %d " % (ifile1, aligned_counts)
-    #print "number of unaligned tags of %s is %d "% (ifile1, unaligned_counts)
-    print "percentage of mapped reads is %s"% ratio
-    return aligned_counts
-
 directories = sys.argv[1:]
 
 for arg in directories:
@@ -60,5 +42,3 @@ for arg in directories:
     for file in f:
         basename = get_basename(file, [".bam"])
         pysam.sort(file,basename+"_sorted")
-
-#aligned_counts("2015-11-1_S1_sorted.bam")

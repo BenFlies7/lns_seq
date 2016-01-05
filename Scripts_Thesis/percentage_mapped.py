@@ -9,7 +9,10 @@ import sys
 import os
 
 def aligned_counts(ifile1):
-    '''count how many alignments are aligned back to genome, ifile1 is a sorted bam file'''
+    '''
+    count how many alignments are aligned back to genome,
+    ifile1 is a sorted bam file
+    '''
     import HTSeq
     sortedbamfile= HTSeq.BAM_Reader(ifile1)
     aligned_counts=0
@@ -23,8 +26,7 @@ def aligned_counts(ifile1):
     ratio = (aligned_counts / sum) * float(100)
     #print "number of aligned tags of %s is %d " % (ifile1, aligned_counts)
     #print "number of unaligned tags of %s is %d "% (ifile1, unaligned_counts)
-    print "percentage of mapped reads is %s"% ratio
-    return aligned_counts
+    return ratio
 
 directories = sys.argv[1:]
 
@@ -41,5 +43,8 @@ for arg in directories:
                  for name in files
                  if name.endswith("_sorted.bam")]
 
+    f.sort()
+
     for file in f:
-        print(aligned_counts(file)
+        aligned = aligned_counts(file)
+        print "File %s : %s" %(file,aligned)

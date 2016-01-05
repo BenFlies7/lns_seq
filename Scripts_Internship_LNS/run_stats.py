@@ -39,8 +39,6 @@ def get_basename(name, extensions, cut_paired=False):
 
 directories = sys.argv[1:]
 
-#per_run_sizes = []
-
 plt.figure()
 plt.hold = True
 boxes = []

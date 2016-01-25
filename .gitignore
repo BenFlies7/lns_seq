@@ -42,3 +42,9 @@ Thumbs.db
 *.bam
 *.bai
 *.vcf
+
+#Other files
+*.csv
+*.ods
+*.doc
+*.docx

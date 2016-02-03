@@ -1,6 +1,8 @@
 #!usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from Bio import SeqIO
+
 directories = sys.argv[1:]
 
 for arg in directories:
@@ -16,8 +18,6 @@ for arg in directories:
                  for name in files
                  if name.endswith(("R2_L001.fastq", "R2_L001.fastq.gz"))]
 
-from Bio import SeqIO
-trimmed_primer_reads = (rec[1:] for rec in \
-                        SeqIO.parse("SRR020192.fastq", "fastq"))
-count = SeqIO.write(trimmed_primer_reads, "with_primer_trimmed.fastq", "fastq")
-print("Saved %i reads" % count)
+    trimmed_primer_reads = (rec[1:] for rec in SeqIO.parse(arg, "fastq"))
+    count = SeqIO.write(trimmed_primer_reads, "with_primer_trimmed.fastq", "fastq")
+    print("Saved %i reads" % count)

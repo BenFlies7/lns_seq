@@ -9,28 +9,12 @@ import numpy
 import csv
 
 #import bam file and index if necessary
-bamfile = pysam.Samfile("read1_trimmed.bam","rb")
-if not os.path.exists("read1_trimmed.bam.bai"):
-    pysam.index("read1_trimmed.bam")
+bamfile = pysam.AlignmentFile("assembly.bam","rb")
 
-with open("spam.csv","rb") as csvfile:
-    spamreader = csv.reader(csvfile)
-    for row in spamreader:
-        x = []
-        y = []
-        for column in bamfile.pileup(str(row[0]),int(row[1]),int(row[2]),max_depth = 1000000):
-            x.append(column.pos)
-            n = 0
-            for read in column.pileups:
-                if (not read.is_del):
-                    n += 1
-                    y.append(n)
-            plot.boxplot(x)
+m = []
+#"chr1", 115256524, 115256525)
+for read in bamfile.fetch("chr1", 115256524 -1 , 115256525 -1):
+    qual = read.mapping_quality
+    m.append(numpy.mean(qual))
 
-plot.figure(figsize=(15, 5))
-"""
-plot.plot(x, y, 'b')
-plot.plot([x[0], x[-1]], [numpy.mean(y[50:-50]), numpy.mean(y[50:-50])], ':r')
-plot.show()
-"""
-plot.show()
+print numpy.mean(m)

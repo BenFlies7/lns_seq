@@ -1,0 +1,76 @@
+######Varscan######
+
+samtools mpileup \
+-f /media/partition/hg19/ucsc.hg19.fasta \
+-l ~/Desktop/00100-1407755742_Regions.bed \
+~/stage_lns/Scripts_Thesis/assembly.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-var-freq 0.05 \
+--output-vcf 1 > ~/Desktop/output_varscan.vcf
+
+
+
+######SAMtools######
+
+samtools mpileup \
+-uf /media/partition/hg19/ucsc.hg19.fasta \
+-l ~/Desktop/00100-1407755742_Regions.bed \
+-d 1000000 \
+~/stage_lns/Scripts_Thesis/assembly.bam \
+| bcftools call \
+-c \
+-v -  > output_samtools.vcf
+
+
+
+##### GATK UnifiedGenotyper ######
+
+java -jar ~/utils/GenomeAnalysisTK.jar \
+-T UnifiedGenotyper \
+-R /media/partition/hg19/ucsc.hg19.fasta \
+-L ~/Desktop/00100-1407755742_Regions.bed \
+-I ~/stage_lns/Scripts_Thesis/assembly.bam \
+-o ~/Desktop/output_GATK_UG.vcf \
+-stand_emit_conf 10 \
+-stand_call_conf 10 \
+-A FisherStrand \
+-A AlleleBalance \
+-A BaseCounts \
+-A GCContent \
+-A StrandOddsRatio \
+-A StrandBiasBySample \
+-A Coverage \
+
+
+
+###### MuTect ######
+
+java -jar ~/utils/mutect-1.1.7.jar -T MuTect \
+--input_file:tumor ~/stage_lns/Scripts_Thesis/assembly.bam \
+-S STRICT \
+-R /media/partition/hg19/ucsc.hg19.fasta \
+-L ~/Desktop/00100-1407755742_Regions.bed \
+-o output_mutect_STRICT.txt \
+-vcf output_mutect_STRICT.vcf
+
+
+
+###### SNPSVM ######
+
+java -jar ~/utils/SNPSVM/snpsvm.jar \
+predict \
+-R /media/partition/hg19/ucsc.hg19.fasta \
+-B ~/stage_lns/Scripts_Thesis/assembly.bam \
+-L ~/Desktop/00100-1407755742_Regions_modified.bed \
+-M ~/utils/SNPSVM/models/default.model \
+-V ~/Desktop/output_SNPSVM.vcf
+
+
+
+###### STRELKA ######
+/home/ben/utils/strelka_installation/bin/configureStrelkaWorkflow.pl \
+--tumor=assembly.bam \
+--ref=/media/partition/hg19/ucsc.hg19.fasta \
+--config=config.ini \
+--output-dir=./myAnalysis

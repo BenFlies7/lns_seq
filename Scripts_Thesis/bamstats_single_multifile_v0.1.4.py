@@ -3,7 +3,8 @@
 
 from __future__ import print_function
 
-from collections import namedtuple, defaultdict
+from collections import namedtuple, defaultdict, Counter, OrderedDict
+from operator import itemgetter
 import json
 import re
 import time
@@ -225,7 +226,19 @@ def calculate_for_column(reference, zero_based_pos):
     """
     Histogram of mapping qualities
     """
-    plt.hist(result_dict['mapping_qualities'], bins = 60)
+    map_qual_count = {n: float(result_dict['mapping_qualities'].count(n) / float(len(result_dict['mapping_qualities']))) for n in result_dict['mapping_qualities']}
+    map_qual_count = OrderedDict(sorted(map_qual_count.items(), key = itemgetter(0)))
+    print(map_qual_count)
+    plt.bar(map_qual_count.keys(), map_qual_count.values())
+    plt.show()
+
+    """
+    Histogram of base qualities
+    """
+    base_qual_count = {n: float(result_dict['base_qualities'].count(n) / float(len(result_dict['base_qualities']))) for n in result_dict['base_qualities']}
+    base_qual_count = OrderedDict(sorted(base_qual_count.items(), key = itemgetter(0)))
+    print(base_qual_count)
+    plt.bar(base_qual_count.keys(), base_qual_count.values())
     plt.show()
 
     del result_dict['base_qualities']
@@ -256,7 +269,8 @@ def calculate_for_column(reference, zero_based_pos):
     return ("%s:%s" % (reference, zero_based_pos + 1), result_dict)
 
 """
-Main program
+Main program    base_qual_count = sorted(base_qual_count.iteritems())
+
 http://sebastianraschka.com/Articles/2014_multiprocessing_intro.html
 """
 
@@ -265,7 +279,7 @@ Get intervals (or positions) to calculate stats
 """
 IntervalColumns = namedtuple('bed', ['chr', 'start', 'end'])
 intervals_list = []
-"""
+
 if VCF_FILE:
     # NOTE: vcf coordinates are 1-based, but pysam converts to 0-based
     bcf_in = pysam.VariantFile(VCF_FILE)  # auto-detect input format
@@ -286,7 +300,7 @@ elif INTERVALS_BED:
                 intervals_list.append(bed_line)
 else:
     print("ERROR: Provide either an interval list (bed format) or a vcf file")
-"""
+
 
 intervals_list = [IntervalColumns("chr17", 7577625, 7577626)] # end of reads
 

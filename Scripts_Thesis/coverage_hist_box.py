@@ -9,8 +9,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import gridspec
 
-BAM_file = sys.argv[1]
-BED_file = sys.argv[2]
+BAM_file = "/media/partition/Haloplex_Test_1_Late_January/Velona/15038519_S3.bam"
+BED_file = "/media/partition/Haloplex_Test_1_Late_January/00100-1407755742_Regions.bed"
+#BAM_FILE = "/media/partition/Haloplex_Test_1_Late_January/Velona/15038519_S3.bam"
+#INTERVALS_BED = "/media/partition/Haloplex_Test_1_Late_January/00100-1407755742_Regions.bed"
 
 def get_coverage(bam_file,bed_file):
     """
@@ -25,6 +27,7 @@ def get_coverage(bam_file,bed_file):
     sys.stdout.flush()
     t0 = time.time()
     coverage_result = almnt.coverage(regions).sort()
+    print(coverage_result)
     print coverage_result
     coverage_array = np.array([i[-4] for i in coverage_result], dtype=float)
     print coverage_array

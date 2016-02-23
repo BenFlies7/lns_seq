@@ -26,8 +26,8 @@ If both are given, vcf file is taken
 # TODO: get base on reference sequence
 
 REFERENCE = "/media/partition/hg19/ucsc.hg19.fasta"
-BAM_FILE = "/home/ben/work_directory/assembly.bam"
-INTERVALS_BED = "/home/ben/stage_lns/Scripts_Thesis/00100-1407755742_Regions.bed"
+BAM_FILE = "/media/partition/TST15_Test_1_Early_February/Base_Space/EGFR_15001181/Libraries/15001181_S1.bam"
+INTERVALS_BED = "/media/partition/TST15_Test_1_Early_February/TST_15-A-manifest.bed"
 VCF_FILE = None#"/home/christophe/workspace/bioseq-scripts/testfiles_bamstats/variants_short.vcf"
 
 AT_EDGE_THRESHOLD = 5

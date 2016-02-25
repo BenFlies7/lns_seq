@@ -9,10 +9,23 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import gridspec
 
-BAM_file = "/media/partition/Haloplex_Test_1_Late_January/Velona/15038519_S3.bam"
+#BAM_file = "/media/partition/Haloplex_Test_1_Late_January/Velona/15038519_S3.bam"
 BED_file = "/media/partition/Haloplex_Test_1_Late_January/00100-1407755742_Regions.bed"
 #BAM_FILE = "/media/partition/Haloplex_Test_1_Late_January/Velona/15038519_S3.bam"
 #INTERVALS_BED = "/media/partition/Haloplex_Test_1_Late_January/00100-1407755742_Regions.bed"
+
+#BAM_FILE = "/media/partition/Haloplex_Test_1_Late_January/Velona/15038519_S3.bam"
+#INTERVALS_BED = "/media/partition/Haloplex_Test_1_Late_January/00100-1407755742_Regions.bed"
+
+#BAM_FILE = "/media/partition/TST15_Test_1_Early_February/Base_Space/BRAF_15018040/Libraries/15018040_S1.bam"
+#INTERVALS_BED = "/media/partition/TST15_Test_1_Early_February/TST_15-A-manifest.bed"
+#BAM_FILE = "/media/partition/15001181_S1.bam"
+#BAM_file = "/media/partition/Haloplex_Test_2_Mid_February/Velona/15028422_S6.bam"
+BAM_file = "/media/partition/Haloplex_Test_2_Mid_February/Velona/ECD_S9.bam"
+#BAM_FILE = "/media/partition/Haloplex_Test_2_Mid_February/Velona/15051669_S1.bam"
+#BAM_FILE = "/media/partition/Haloplex_Test_2_Mid_February/Velona/15020056_S2.bam"
+#BAM_FILE = "/media/partition/Haloplex_Test_2_Mid_February/Velona/15010800_S3.bam"
+#BAM_FILE = "/media/partition/Haloplex_Test_2_Mid_February/Velona/15039121_S7.bam"
 
 def get_coverage(bam_file,bed_file):
     """

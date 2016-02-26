@@ -76,7 +76,7 @@ for file in bam_file_list:
     '''
     print('\nFile: %s \n' %file)
     for interval in coverage_result:
-        collected[interval[3]].append(interval[4])
+        collected[interval[3].encode('ascii','ignore')].append(float(interval[4]))
         if float(interval[4]) <=1:
             print('Amplicon %s was not amplified at all !' %(interval[3]))
         elif 1 < float(interval[4]) <= COVERAGE_THRESHOLD:
@@ -84,10 +84,13 @@ for file in bam_file_list:
     print('\n#####################################\n')
 
 boxes = []
-for key, value in enumerate(collected):
-    boxes.append(collected.values())
-
+for key, value in collected.items():
+    cov_list = []
+    for v in value:
+        cov_list.append(v)
+    boxes.append(cov_list)
 plt.boxplot(boxes)
+plt.show()
 
 '''
 coverage_list = []

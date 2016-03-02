@@ -12,12 +12,14 @@ from operator import itemgetter
 
 COVERAGE_THRESHOLD = 1000
 
+BAM_FILE = "/media/partition/Haloplex/Haloplex_Test_2_Mid_February/Velona/15016513_S5.bam"
+INTERVALS_BED = "/media/partition/Haloplex/Haloplex_Test_1_Late_January/00100-1407755742_Regions.bed"
+
 almnt = pybedtools.BedTool(BAM_FILE)
 #regions = pybedtools.BedTool(INTERVALS_BED)
 
 IntervalColumns = namedtuple('bed', ['chr', 'start', 'end', 'gene'])
 intervals_list = []
-
 
 if sys.argv[1] == 'all':
     if INTERVALS_BED:

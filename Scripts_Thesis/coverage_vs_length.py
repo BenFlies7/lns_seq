@@ -69,44 +69,23 @@ for file in bam_file_list:
         print("ERROR: Provide an interval list (bed format)")
 
     coverage_result = almnt.coverage(intervals_list).sort()
-
-    '''
-    Print amplicons that have not been amplified at all
-    and amplicons that have coverage < 1000x
-    '''
-    print('\nFile: %s \n' %file)
-
+    
     for interval in coverage_result:
         if interval[3] not in collected.keys():
             collected[interval[3].encode('ascii','ignore')] = {
             'Coverages' : [float(interval[4])],
-            'Median' : 0
+            'Mean' : 0,
+            'Length' : float(interval[6])
             }
         else:
             collected[interval[3].encode('ascii','ignore')]['Coverages'].append(float(interval[4]))
-        #collected[interval[3].encode('ascii','ignore')]['Coverages'].append(float(interval[4]))
-        if float(interval[4]) <= 1 :
-            print('Amplicon %s was not amplified at all !' %(interval[3]))
-        elif 1 < float(interval[4]) <= COVERAGE_THRESHOLD:
-            print('Amplicon %s was not amplified efficiently (coverage: %s x)' %(interval[3], interval[4]))
-    print('\n#####################################\n')
-
-boxes = []
 
 for key, value in collected.items():
-    median = np.median(collected[key]['Coverages'])
-    collected[key]['Median'] += median
-    collected_sorted = OrderedDict(sorted(collected.items(), key=lambda t: t[1]['Median']))
+    mean = np.mean(collected[key]['Coverages'])
+    collected[key]['Mean'] += mean
 
-for key, value in collected_sorted.items():
-    boxes.append(collected_sorted[key]['Coverages'])
-
-plt.boxplot(boxes)
-plt.axhline(y=1000, color = 'r')
-plt.axhline(y=2500, color = 'r')
-plt.axhline(y=5000, color = 'r')
-xtickNames = plt.setp(ax1, xticklabels = collected_sorted.keys())
-plt.setp(xtickNames, rotation=90, fontsize=7)
-plt.ylabel('Coverage (x)')
-plt.title('Comparison of Amplicon Depths')
+for key, value in collected.items():
+    x = collected[key]['Length']
+    y = collected[key]['Mean']
+    plt.scatter(x,y)
 plt.show()

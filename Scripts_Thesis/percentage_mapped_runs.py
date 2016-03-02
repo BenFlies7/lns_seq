@@ -47,7 +47,6 @@ for arg in directories:
 
     for file in f:
         aligned = aligned_counts(file)
-        #print "File %s : %s" %(file,aligned)
         almnt += aligned
 
     percentage = almnt / len(f)

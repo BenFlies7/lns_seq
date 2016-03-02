@@ -17,7 +17,6 @@ BAM_FILE = "/media/partition/Haloplex/Haloplex_Test_2_Mid_February/Velona/150284
 INTERVALS_BED = "/media/partition/Haloplex/Haloplex_Test_1_Late_January/00100-1407755742_Regions.bed"
 
 almnt = pybedtools.BedTool(BAM_FILE)
-#regions = pybedtools.BedTool(INTERVALS_BED)
 
 IntervalColumns = namedtuple('bed', ['chr', 'start', 'end', 'gene'])
 intervals_list = []
@@ -31,7 +30,6 @@ if sys.argv[1] == 'all':
                 if len(line) == 4:
                     line[1] = int(line[1])
                     line[2] = int(line[2])
-                    #line[3] = re.sub('_\d$','',line[3])
                     bed_line = IntervalColumns(*(line[0], int(line[1]), int(line[2]), line[3]))
                     intervals_list.append(bed_line)
                 if len(line) == 12:
@@ -98,30 +96,3 @@ plt.axhline(y=1000, color = 'r')
 plt.ylabel('Coverage (x)')
 plt.title('Comparison of Amplicon Depths')
 plt.show()
-'''
-plt.bar(x,coverage_list)
-plt.axhline(y=1000, color = 'r')
-plt.xticks(x, names,rotation='vertical', fontsize = 7)
-plt.ylabel('Coverage (x)')
-plt.title('Comparison of Amplicon Depths')
-
-plt.show()
-'''
-"""
-collected = defaultdict(list)
-for interval in coverage_result:
-    interval[3] = re.sub('_(\d+)$','',interval[3])
-    if interval[3] not in collected:
-        collected[interval[3].encode('ascii','ignore')] = {
-        "coverage" : [interval[4].encode('ascii','ignore')]
-        }
-    else:
-        collected = convert_keys_to_string(collected)
-        collected[interval[3]]['coverage'].append(interval[4].encode('ascii','ignore'))
-print(collected)
-
-for k,v in collected.items():
-    data = v['coverage']
-    plt.hist(data,sym='')
-plt.show()
-"""

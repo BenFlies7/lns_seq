@@ -13,8 +13,8 @@
 ### Usage
 samtools mpileup \
 -f /media/partition/hg19/ucsc.hg19.fasta \
--l ~/Desktop/00100-1407755742_Regions.bed \
-~/work_directory/assembly.bam \
+-l /media/partition/TST15/TST_15-A-manifest.bed \
+/media/partition/TST15/TST15_Illumina/HD729/Libraries/HD729_S3.bam \
 -d 1000000 \
 | java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
 --min-coverage 100 \
@@ -22,7 +22,7 @@ samtools mpileup \
 --min-avg-qual 20 \
 --min-var-freq 0.01 \
 --strand-filter 1 \
---output-vcf 1 > output_varscan.vcf
+--output-vcf 1 > output_varscan_HD729_S3.vcf
 
 ### Options:
 --min-coverage 	Minimum read depth at a position to make a call [8]

@@ -45,7 +45,6 @@ def ratio(dictionary,threshold):
     y = ratio.values()
     color = "#%03x" % random.randint(0, 0xFFFFFF)
     plt.plot(x,y,color, label=threshold)
-    plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
 
 ### Go over the threshold list & show the result
 for index,value in enumerate(thresholds):

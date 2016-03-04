@@ -12,12 +12,13 @@ from operator import itemgetter
 
 COVERAGE_THRESHOLD = 1000
 
-BAM_FILE = "/media/partition/Haloplex/Haloplex_Test_2_Mid_February/Velona/15016513_S5.bam"
-BAM_FILE = "/media/partition/Haloplex_Test_2_Mid_February/Velona/15028422_S6.bam
-INTERVALS_BED = "/media/partition/Haloplex/Haloplex_Test_1_Late_January/00100-1407755742_Regions.bed"
+#BAM_FILE = "/media/partition/Haloplex/Haloplex_Test_2_Mid_February/Velona/15016513_S5.bam"
+#BAM_FILE = "/media/partition/Haloplex/Haloplex_Test_2_Mid_February/Velona/15028422_S6.bam"
+BAM_FILE = "/media/partition/Haloplex/Haloplex_Test_2_Mid_February/Velona/ECD_S9.bam"
+
+INTERVALS_BED = "/media/partition/Haloplex/00100-1407755742_Regions.bed"
 
 almnt = pybedtools.BedTool(BAM_FILE)
-#regions = pybedtools.BedTool(INTERVALS_BED)
 
 IntervalColumns = namedtuple('bed', ['chr', 'start', 'end', 'gene'])
 intervals_list = []
@@ -31,7 +32,6 @@ if sys.argv[1] == 'all':
                 if len(line) == 4:
                     line[1] = int(line[1])
                     line[2] = int(line[2])
-                    #line[3] = re.sub('_\d$','',line[3])
                     bed_line = IntervalColumns(*(line[0], int(line[1]), int(line[2]), line[3]))
                     intervals_list.append(bed_line)
                 if len(line) == 12:
@@ -72,56 +72,44 @@ elif sys.argv[1] == 'interest':
 coverage_result = almnt.coverage(intervals_list).sort()
 
 coverage_list = []
-names = []
-
-collected = defaultdict(list)
 
 for interval in coverage_result:
-    coverage_list.append(interval[4])
-    names.append(interval[3])
-    if float(interval[4]) <=1:
-        print('Amplicon %s was not amplified at all !' %interval[3])
-    elif 1 < float(interval[4]) <= COVERAGE_THRESHOLD:
-        print('Amplicon %s was not amplified efficiently (coverage: %s x)' %(interval[3], interval[4]))
-    name = interval[3]
-    cov = float(interval[4])
-    collected[name.encode('ascii','ignore')].append(cov)
+    coverage_list.append(float(interval[4]))
 
-coverage_list = np.asarray(coverage_list).astype(np.float)
-coverage_sorted = OrderedDict(sorted(collected.items(), key = itemgetter(1)))
-coverage_list.sort()
-N = len(coverage_list)
-x = range(N)
-plt.bar(x, coverage_list)
-plt.xticks(x, coverage_sorted.keys(),rotation='vertical', fontsize = 7)
-plt.axhline(y=1000, color = 'r')
-plt.ylabel('Coverage (x)')
-plt.title('Comparison of Amplicon Depths')
-plt.show()
-'''
-plt.bar(x,coverage_list)
-plt.axhline(y=1000, color = 'r')
-plt.xticks(x, names,rotation='vertical', fontsize = 7)
-plt.ylabel('Coverage (x)')
-plt.title('Comparison of Amplicon Depths')
+mean = np.mean(coverage_list)
 
-plt.show()
-'''
-"""
-collected = defaultdict(list)
+collected_normalize = defaultdict(list)
+collected_normalize = {
+'chr' : [],
+'start' : [],
+'end' : [],
+'name' : [],
+'normalized coverage' : []
+}
+
 for interval in coverage_result:
-    interval[3] = re.sub('_(\d+)$','',interval[3])
-    if interval[3] not in collected:
-        collected[interval[3].encode('ascii','ignore')] = {
-        "coverage" : [interval[4].encode('ascii','ignore')]
+    if interval[3] not in collected_normalize:
+        collected_normalize[interval[3].encode('ascii','ignore')] = {
+        'chr' : 0,
+        'start' : 0,
+        'end' : 0,
+        'normalized coverage' : 0,
+        'median' : 0
         }
-    else:
-        collected = convert_keys_to_string(collected)
-        collected[interval[3]]['coverage'].append(interval[4].encode('ascii','ignore'))
-print(collected)
+    collected_normalize[interval[3].encode('ascii','ignore')]['chr'] == interval[0].encode('ascii','ignore')
+    collected_normalize[interval[3].encode('ascii','ignore')]['start'] += float(interval[1])
+    collected_normalize[interval[3].encode('ascii','ignore')]['end'] += float(interval[2])
+    collected_normalize[interval[3].encode('ascii','ignore')]['normalized coverage'] += float(float(interval[4])/float(mean))
 
-for k,v in collected.items():
-    data = v['coverage']
-    plt.hist(data,sym='')
+norm_cov = []
+for key, value in collected_normalize.items():
+    norm_cov.append(collected_normalize[key]['normalized coverage'])
+print norm_cov
+
+
+cov_list = np.asarray(norm_cov).astype(np.float)
+cov_list.sort()
+N = len(cov_list)
+x = range(N)
+plt.bar(x, cov_list)
 plt.show()
-"""

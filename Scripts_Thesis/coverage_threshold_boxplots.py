@@ -15,7 +15,7 @@ from operator import itemgetter
 
 #Load files
 #BAM_FILE = "/media/partition/Haloplex_Test_1_Late_January/Velona/15061857_S2.bam"
-INTERVALS_BED = "/media/partition/Haloplex/Haloplex_Test_1_Late_January/00100-1407755742_Regions.bed"
+INTERVALS_BED = "/media/partition/Haloplex/00100-1407755742_Regions.bed"
 
 #BAM_FILE = "/media/partition/Haloplex_Test_2_Mid_February/Velona/15028422_S6.bam"
 #BAM_FILE = "/media/partition/Haloplex_Test_2_Mid_February/Velona/ECD_S9.bam"

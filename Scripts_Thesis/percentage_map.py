@@ -1,7 +1,9 @@
 #!/usr/bin/python
-#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+"""
+This script sorts all .bam files of a given input directory
+"""
 
 import sys
 import os
@@ -26,7 +28,23 @@ def aligned_counts(ifile1):
     #print "number of unaligned tags of %s is %d "% (ifile1, unaligned_counts)
     return ratio
 
-file = '/media/usb/Thesis/Haloplex_2_Mid_February/SURECALL/15010800_S3_L001_R1_001.fastq_04Mar2016_11_53_24_15_Sorted.bam'
+directories = sys.argv[1:]
 
-aligned = aligned_counts(file)
-print "File %s : %s" %(file,aligned)
+for arg in directories:
+
+    os.chdir("/home")
+    path_fastq = arg
+    os.chdir(os.path.dirname(os.path.abspath(arg)))
+    files = os.listdir(path_fastq)
+
+    #search fastq files:
+    f = [os.path.join(root,name)
+                 for root, dirs, files in os.walk(path_fastq)
+                 for name in files
+                 if name.endswith("_sorted.bam")]
+
+    f.sort()
+
+    for file in f:
+        aligned = aligned_counts(file)
+        print "File %s : %s" %(file,aligned)

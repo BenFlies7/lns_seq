@@ -53,10 +53,10 @@ java -jar ~/utils/GenomeAnalysisTK.jar \
 ###### MuTect ######
 
 java -jar ~/utils/mutect-1.1.7.jar -T MuTect \
---input_file:tumor ~/stage_lns/Scripts_Thesis/assembly.bam \
+--input_file:tumor /media/usb/Thesis/Haloplex_2_Mid_February/SURECALL/15010800_S3_L001_R1_001.fastq_04Mar2016_11_53_24_15_Sorted.bam \
 -S STRICT \
--R /media/partition/hg19/ucsc.hg19.fasta \
--L ~/Desktop/00100-1407755742_Regions.bed \
+-R /media/partition/hg19_surecall/hg19/hg19.fasta \
+-L /media/partition/Haloplex/00100-1407755742_Regions.bed \
 -o output_mutect_STRICT.txt \
 -vcf output_mutect_STRICT.vcf
 

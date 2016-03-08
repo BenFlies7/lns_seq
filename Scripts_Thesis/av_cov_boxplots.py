@@ -11,7 +11,7 @@ import glob
 IntervalColumns = namedtuple('bed', ['chr', 'start', 'end', 'gene'])
 intervals_list = []
 
-INTERVALS_BED = "/media/partition/Haloplex/Haloplex_Test_1_Late_January/00100-1407755742_Regions.bed"
+INTERVALS_BED = "/media/partition/Haloplex/00100-1407755742_Regions.bed"
 
 if INTERVALS_BED:
     with open(INTERVALS_BED, "r") as fin:

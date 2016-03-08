@@ -13,16 +13,16 @@
 ### Usage
 samtools mpileup \
 -f /media/partition/hg19/ucsc.hg19.fasta \
--l /media/partition/Haloplex/Haloplex_Test_1_Late_January/00100-1407755742_Regions.bed \
-/media/partition/Haloplex/Haloplex_Test_2_Mid_February/Velona/15028422_S6.bam \
+-l /media/partition/Haloplex/00100.1407755742_Regions.bed \
+/media/usb/Thesis/Haloplex_2_Mid_February/SURECALL/15010800_S3_L001_R1_001.fastq_04Mar2016_11_53_24_15_Sorted.bam \
 -d 1000000 \
 | java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
 --min-coverage 100 \
 --min-reads2 4 \
 --min-avg-qual 20 \
---min-var-freq 0.01 \
+--min-var-freq 0.03 \
 --strand-filter 1 \
---output-vcf 1 > output_varscan_S6.vcf
+--output-vcf 1 > ~/output_varscan_15010800_S3.vcf
 
 ### Options:
 --min-coverage 	Minimum read depth at a position to make a call [8]

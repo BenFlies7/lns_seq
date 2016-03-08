@@ -14,7 +14,7 @@ from operator import itemgetter
 import pybedtools
 
 #Load BED file & define directory to parse over
-INTERVALS_BED = "/media/partition/Haloplex/Haloplex_Test_1_Late_January/00100-1407755742_Regions.bed"
+INTERVALS_BED = "/media/partition/Haloplex/00100-1407755742_Regions.bed"
 DIRECTORY = '/media/partition/Haloplex/Haloplex_Test_2_Mid_February/Velona'
 
 #Define coverage thresholds
@@ -50,14 +50,15 @@ if INTERVALS_BED:
                 intervals_list.append(bed_line)
 else:
     print("ERROR: Provide an interval list (bed format)")
-
+print('Preparing BED file:... DONE')
 
 #Search BAM files in the input directory
 bam_file_list = [f for f in glob.iglob(DIRECTORY+"/*.bam")]
+print('Searching for BAM files:... DONE')
 
 #Count how many amplicons do not reach a certain threshold
 collected = defaultdict(list)
-
+print('Check for failed amplicons')
 for file in bam_file_list:
 
     almnt = pybedtools.BedTool(file)
@@ -87,7 +88,9 @@ for file in bam_file_list:
             collected[interval[3]]['Failed 250-500'] += 1
         elif THRESHOLD_5 < float(interval[4]) <= THRESHOLD_6:
             collected[interval[3]]['Failed 500-1000'] += 1
+print('Check for failed amplicons:... DONE')
 
+print('Write data into a CSV')
 #Write result in a CSV file
 with open('counter.csv',"w") as f_out:
     writer = csv.writer(f_out)

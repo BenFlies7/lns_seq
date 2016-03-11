@@ -1,0 +1,23 @@
+
+# TODO
+
+PPT:
+
+- explain design of:
+  ° Multiplicom
+  ° TST15
+  ° Haloplex
+  -> identify what has to be trimmed of
+
+- explain analysis pipeline of:
+  ° GATK Best Practices, more details
+  ° Surecall, more details
+  ° BaseSpace, trimming?
+
+- compare variant callers:
+  ° Mutect, somatic
+  ° GATK UnifiedGenotyper, haplotype
+  ° Varscan, haplotype
+  ° Freebayes, haplotype
+
+- Find good definition for haplotype

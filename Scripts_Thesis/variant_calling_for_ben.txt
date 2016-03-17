@@ -13,16 +13,16 @@
 ### Usage
 samtools mpileup \
 -f /media/partition/hg19/ucsc.hg19.fasta \
--l /media/partition/Haloplex/00100-1407755742_Regions.bed \
-/media/usb/Thesis/Haloplex_2_Mid_February/SURECALL/15010800_S3_L001_R1_001.fastq_04Mar2016_11_53_24_15_Sorted.bam \
+-l /media/partition/TST15/TST_15-A-manifest.bed \
+/media/partition/Variant_Calling_Test/15001181_S1.bam \
 -d 1000000 \
 | java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
---min-coverage 100 \
---min-reads2 4 \
+--min-coverage 500 \
+--min-reads2 15 \
 --min-avg-qual 20 \
 --min-var-freq 0.03 \
 --strand-filter 1 \
---output-vcf 1 > ~/output_varscan_15010800_S3.vcf
+--output-vcf 1 > ~/output_varscan_15001181_S1.vcf
 
 ### Options:
 --min-coverage 	Minimum read depth at a position to make a call [8]
@@ -59,8 +59,8 @@ http://www.htslib.org/doc/bcftools-1.0.html#call
 java -jar ~/utils/GenomeAnalysisTK.jar \
 -T UnifiedGenotyper \
 -R /media/partition/hg19/ucsc.hg19.fasta \
--L ~/Desktop/00100-1407755742_Regions.bed \
--I ~/work_directory/assembly.bam \
+-L /media/partition/TST15/TST_15-A-manifest.bed \
+-I /media/partition/Variant_Calling_Test/15001181_S1.bam \
 -o output_GATK_UG.vcf \
 -stand_emit_conf 10 \
 -stand_call_conf 10 \
@@ -77,10 +77,10 @@ java -jar ~/utils/GenomeAnalysisTK.jar \
 ###### MuTect ######
 
 java -jar ~/utils/mutect-1.1.7.jar -T MuTect \
---input_file:tumor ~/work_directory/assembly.bam \
+--input_file:tumor /media/partition/Variant_Calling_Test/15001181_S1.bam \
 -S LENIENT \
 -R /media/partition/hg19/ucsc.hg19.fasta \
--L ~/Desktop/00100-1407755742_Regions.bed \
+-L /media/partition/TST15/TST_15-A-manifest.bed \
 -o output_mutect.txt \
 -vcf output_mutect.vcf
 
@@ -89,8 +89,34 @@ java -jar ~/utils/mutect-1.1.7.jar -T MuTect \
 ###### Freebayes ######
 freebayes \
 -f /media/partition/hg19/ucsc.hg19.fasta \
--t ~/Desktop/00100-1407755742_Regions_modified.bed \
---standard-filters \
---min-coverage 250  \
-~/work_directory/assembly.bam \
-> output_freebayes.vcf
+-t /media/partition/TST15/TST_15-A-manifest_copy.bed \
+-C 15 \
+-m 30 \
+-q 30 \
+--min-coverage 500  \
+/media/partition/Variant_Calling_Test/15001181_S1.bam \
+> output_freebayes_15001181_S1_bla.vcf
+
+
+###### VARDICT ######
+
+perl ~/utils/VarDict-master/vardict.pl \
+-G /hg19/ucsc.hg19.fasta \
+-b /media/partition/Variant_Calling_Test/15001181_S1.bam \
+> output_vardict.vcf
+
+
+
+
+
+
+
+
+java -jar ~/utils/GenomeAnalysisTK.jar \
+-T UnifiedGenotyper \
+-R /media/partition/hg19/ucsc.hg19.fasta \
+-I /media/partition/Variant_Calling_Test/15001181_S1.bam \
+-o output_gatk_15001181_S1.vcf \
+-L /media/partition/TST15/TST_15-A-manifest_copy.bed \
+-stand_emit_conf 10 \
+-stand_call_conf 10

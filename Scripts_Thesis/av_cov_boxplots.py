@@ -11,7 +11,8 @@ import glob
 IntervalColumns = namedtuple('bed', ['chr', 'start', 'end', 'gene'])
 intervals_list = []
 
-INTERVALS_BED = "/media/partition/Haloplex/00100-1407755742_Regions.bed"
+#INTERVALS_BED = "/media/partition/Haloplex/00100-1407755742_Regions.bed"
+INTERVALS_BED = '/media/partition/TST15/TST_15-A-manifest.bed'
 
 if INTERVALS_BED:
     with open(INTERVALS_BED, "r") as fin:
@@ -31,7 +32,8 @@ if INTERVALS_BED:
 else:
     print("ERROR: Provide an interval list (bed format)")
 
-directory = '/media/partition/Haloplex/Haloplex_Test_2_Mid_February/Velona'
+#directory = '/media/partition/Haloplex/Haloplex_Test_2_Mid_February/Velona'
+directory = '/media/usb/TST15_2_Late_February/BAM/'
 
 fig,ax1 = plt.subplots()
 plt.hold = True
@@ -51,7 +53,7 @@ for file in bam_file_list:
     coverage_result = almnt.coverage(intervals_list).sort()
 
     basename = re.sub('.bam$','',file)
-    basename = re.sub('/media/partition/Haloplex/Haloplex_Test_2_Mid_February/Velona/','',basename)
+    basename = re.sub(directory,'',basename)
 
     collected[basename] = {
     'Coverages' : []
@@ -62,6 +64,7 @@ for file in bam_file_list:
 
 for key, value in collected.items():
     boxes.append(collected[key]['Coverages'])
+print boxes
 
 plt.boxplot(boxes)
 xtickNames = plt.setp(ax1, xticklabels = collected.keys())

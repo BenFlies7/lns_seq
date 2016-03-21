@@ -105,13 +105,6 @@ perl ~/utils/VarDict-master/vardict.pl \
 -b /media/partition/Variant_Calling_Test/15001181_S1.bam \
 > output_vardict.vcf
 
-
-
-
-
-
-
-
 java -jar ~/utils/GenomeAnalysisTK.jar \
 -T UnifiedGenotyper \
 -R /media/partition/hg19/ucsc.hg19.fasta \
@@ -120,3 +113,16 @@ java -jar ~/utils/GenomeAnalysisTK.jar \
 -L /media/partition/TST15/TST_15-A-manifest_copy.bed \
 -stand_emit_conf 10 \
 -stand_call_conf 10
+
+###### SomVarIUS ######
+SomVarIUS pickle \
+--dbsnp /media/usb/dbsnp.txt \
+--dbsnp_out dbsnp_out.txt
+
+SomVarIUS call_mutations \
+--bam /media/partition/Variant_Calling_Test/15001181_S1.bam \
+--ref /media/partition/hg19/ucsc.hg19.fasta \
+--out test_output.vcf \
+--dbsnp_bed /media/partition/TST15/TST_15-A-manifest_copy.bed \
+--copy_bed /media/partition/TST15/TST_15-A-manifest_copy.bed \
+--ref_filter

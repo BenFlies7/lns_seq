@@ -14,8 +14,10 @@ from operator import itemgetter
 import pybedtools
 
 #Load BED file & define directory to parse over
-INTERVALS_BED = "/media/partition/Haloplex/00100-1407755742_Regions.bed"
-DIRECTORY = '/media/partition/Haloplex/Haloplex_Test_2_Mid_February/Velona'
+#INTERVALS_BED = "/media/partition/Haloplex/00100-1407755742_Regions.bed"
+INTERVALS_BED = '/media/partition/TST15/TST_15-A-manifest.bed'
+#DIRECTORY = '/media/partition/Haloplex/Haloplex_Test_2_Mid_February/Velona'
+DIRECTORY = '/media/usb/TST15_2_Late_February/BAM/'
 
 #Define coverage thresholds
 THRESHOLD_1 = 1
@@ -50,6 +52,7 @@ if INTERVALS_BED:
                 intervals_list.append(bed_line)
 else:
     print("ERROR: Provide an interval list (bed format)")
+
 print('Preparing BED file:... DONE')
 
 #Search BAM files in the input directory

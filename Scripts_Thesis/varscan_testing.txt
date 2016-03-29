@@ -1,0 +1,113 @@
+samtools mpileup \
+-f /media/partition/hg19/ucsc.hg19.fasta \
+-l /media/partition/TST15/TST_15-B-manifest.bed \
+/media/partition/TST15/TST15_Test_1_Early_February/Base_Space/15001181_S2.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-var-freq 0.0001 \
+--output-vcf 1 > /media/partition/15001181_S2_tst15_varscan.vcf
+
+samtools mpileup \
+-f /media/partition/hg19/ucsc.hg19.fasta \
+-l /media/partition/TST15/TST_15-B-manifest.bed \
+/media/partition/TST15/TST15_Test_1_Early_February/Base_Space/15001181_S1.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--strand-filter 1 \
+--output-vcf 1 > /media/partition/15001181_S1_tst15_varscan.vcf
+
+samtools mpileup \
+-f /media/partition/hg19/ucsc.hg19.fasta \
+-l /media/partition/TST15/TST_15-B-manifest.bed \
+/media/partition/TST15/TST15_Test_1_Early_February/Base_Space/15001181_S2.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--strand-filter 1 \
+--output-vcf 1 > /media/partition/15001181_S2_tst15_varscan.vcf
+
+samtools mpileup \
+-f /media/partition/hg19/ucsc.hg19.fasta \
+-l /media/partition/TST15/TST_15-A-manifest.bed \
+/media/partition/TST15/TST15_Test_1_Early_February/Base_Space/15018040_S1.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--strand-filter 1 \
+--output-vcf 1 > /media/partition/15018040_S1_tst15_varscan.vcf
+
+samtools mpileup \
+-f /media/partition/hg19/ucsc.hg19.fasta \
+-l /media/partition/TST15/TST_15-B-manifest.bed \
+/media/partition/TST15/TST15_Test_1_Early_February/Base_Space/15018040_S2.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--strand-filter 1 \
+--output-vcf 1 > /media/partition/15018040_S2_tst15_varscan.vcf
+
+samtools mpileup \
+-f /media/partition/hg19/ucsc.hg19.fasta \
+-l /media/partition/TST15/TST_15-A-manifest.bed \
+/media/partition/TST15/TST15_Test_1_Early_February/Base_Space/15038519_S1.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--strand-filter 1 \
+--output-vcf 1 > /media/partition/15038519_S1_tst15_varscan.vcf
+
+samtools mpileup \
+-f /media/partition/hg19/ucsc.hg19.fasta \
+-l /media/partition/TST15/TST_15-B-manifest.bed \
+/media/partition/TST15/TST15_Test_1_Early_February/Base_Space/15038519_S2.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--strand-filter 1 \
+--output-vcf 1 > /media/partition/15038519_S2_tst15_varscan.vcf
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+###### TEST ######
+samtools mpileup \
+-f /media/partition/hg19/ucsc.hg19.fasta \
+-l /media/partition/TST15/TST_15-B-manifest.bed \
+/media/partition/TST15/TST15_Test_1_Early_February/Base_Space/15001181_S2.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-var-freq 0.0001
+--output-vcf 1 > /media/partition/15001181_S2_tst15_varscan.vcf

@@ -62,21 +62,24 @@ java -jar ~/utils/mutect-1.1.7.jar -T MuTect \
 
 
 
-###### SNPSVM ######
+###### SomVarIUS ######
+SomVarIUS pickle \
+--dbsnp /media/partition/dbsnp_138_tst15A.bed \
+--dbsnp_out dbsnp_out_tst15A.bed
 
-java -jar ~/utils/SNPSVM/snpsvm.jar \
-predict \
+
+SomVarIUS call_mutations \
+--bam /media/partition/TST15/TST15_Test_1_Early_February/Base_Space/15001181_S1.bam \
+--ref /media/partition/hg19/ucsc.hg19.fasta \
+--out /media/partition/TST15/TST15_Test_1_Early_February/Base_Space/15001181_S1_somvarius.vcf \
+--dbsnp_bed /media/usb/dbsnp_modified.bed \
+--min_reads 500 \
+--min_support 15 \
+--min_af 0.03 \
+
+java70 -jar ~/utils/GenomeAnalysisTK.jar \
 -R /media/partition/hg19/ucsc.hg19.fasta \
--B ~/stage_lns/Scripts_Thesis/assembly.bam \
--L ~/Desktop/00100-1407755742_Regions_modified.bed \
--M ~/utils/SNPSVM/models/default.model \
--V ~/Desktop/output_SNPSVM.vcf
-
-
-
-###### STRELKA ######
-/home/ben/utils/strelka_installation/bin/configureStrelkaWorkflow.pl \
---tumor=assembly.bam \
---ref=/media/partition/hg19/ucsc.hg19.fasta \
---config=config.ini \
---output-dir=./myAnalysis
+-T SelectVariants \
+--variant /media/partition/hg19/dbsnp_138.hg19.vcf \
+-o /media/partition/dbsnp_138_tst15A.vcf \
+-L /media/partition/TST15/TST_15-A-manifest.bed

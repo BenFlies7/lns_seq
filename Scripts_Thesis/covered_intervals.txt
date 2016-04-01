@@ -1,0 +1,67 @@
+java70 -jar ~/utils/GenomeAnalysisTK.jar \
+  -T FindCoveredIntervals \
+  -R /media/partition/hg19_tst15/hg19_tst15.fasta \
+  -I /media/partition/15001181/tst15/15001181_S1.bam \
+  -cov 500 \
+  -U ALLOW_SEQ_DICT_INCOMPATIBILITY \
+  -o output.list
+
+java -jar ~/utils/picard-tools-2.0.1/picard.jar CreateSequenceDictionary R= /media/partition/hg19_tst15/hg19_tst15.fasta O= hg19_tst15.dict
+
+samtools faidx /media/partition/hg19_tst15/hg19_tst15.fasta
+
+java70 -jar ~/utils/GenomeAnalysisTK.jar \
+   -T GCContentByInterval \
+   -R /media/partition/hg19_tst15/hg19_tst15.fasta \
+   -o output.txt \
+   -L /media/partition/TST15/tp53_test.bed
+
+java70 -jar ~/utils/GenomeAnalysisTK.jar \
+  -T GCContentByInterval \
+  -R /media/partition/hg19_tst15/hg19_tst15.fasta \
+  -o output.txt \
+  -L /media/partition/TST15/TST_15-B-manifest.bed
+
+java70 -jar ~/utils/GenomeAnalysisTK.jar \
+  -T DepthOfCoverage \
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -o output_depthofcoverage \
+  -I table.list \
+  -U ALLOW_SEQ_DICT_INCOMPATIBILITY \
+  -L /media/partition/targets/regions/TST_15-A-manifest.bed
+
+java70 -jar ~/utils/GenomeAnalysisTK.jar \
+  -T DiagnoseTargets \
+  -U ALLOW_SEQ_DICT_INCOMPATIBILITY \
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -I /media/partition/15001181/tst15/15001181_S1.bam \
+  -I /media/partition/TST15/TST15_Test_1_Early_February/Base_Space/MixA/15018040_S1.bam \
+  -L /media/partition/targets/regions/TST_15-A-manifest.bed \
+  -o output.vcf
+
+java -jar ~/utils/GenomeAnalysisTK.jar \
+  -T CallableLoci \
+  -U ALLOW_SEQ_DICT_INCOMPATIBILITY \
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -I /media/partition/15001181/tst15/15001181_S1.bam \
+  -summary table.txt \
+  -o callable_status_15001181.bed
+
+java -jar ~/utils/GenomeAnalysisTK.jar \
+  -T CallableLoci \
+  -U ALLOW_SEQ_DICT_INCOMPATIBILITY \
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -I /media/partition/TST15/TST15_Test_1_Early_February/Base_Space/MixA/15018040_S1.bam \
+  -summary table.txt \
+  -o callable_status_15018040.bed
+
+grep CALLABLE callable_status_15001181.bed >> only_callable_15001181.bed
+grep CALLABLE callable_status_15018040.bed >> only_callable_15018040.bed
+
+java -jar ~/utils/GenomeAnalysisTK.jar \
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -T CompareCallableLoci \
+  -comp1 callable_status_15018040.bed \
+  -comp2 callable_status_15001181.bed\
+  -L /media/partition/targets/regions/TST_15-A-manifest.bed \
+  -o comparison.table

@@ -7,6 +7,7 @@ from collections import namedtuple, defaultdict
 import re
 import matplotlib.pyplot as plt
 import glob
+import numpy as np
 
 IntervalColumns = namedtuple('bed', ['chr', 'start', 'end', 'gene'])
 intervals_list = []
@@ -33,7 +34,8 @@ else:
     print("ERROR: Provide an interval list (bed format)")
 
 #directory = '/media/partition/Haloplex/Haloplex_Test_2_Mid_February/Velona'
-directory = '/media/usb/TST15_2_Late_February/BAM/'
+#directory = '/media/usb/TST15_2_Late_February/BAM/'
+directory = '/media/partition/TST15/TST15_Test_1_Early_February/Base_Space/MixA'
 
 fig,ax1 = plt.subplots()
 plt.hold = True
@@ -59,8 +61,19 @@ for file in bam_file_list:
     'Coverages' : []
     }
 
+    cov_counter = []
+
+    for interval in coverage_result:
+        cov_counter.append(float(interval[4]))
+
+    cov_mean = np.mean(cov_counter)
+
+    '''
     for interval in coverage_result:
         collected[basename]['Coverages'].append(float(interval[4]))
+    '''
+    for interval in coverage_result:
+        collected[basename]['Coverages'].append(float(interval[4]) / cov_mean)
 
 for key, value in collected.items():
     boxes.append(collected[key]['Coverages'])
@@ -70,6 +83,6 @@ plt.boxplot(boxes)
 xtickNames = plt.setp(ax1, xticklabels = collected.keys())
 plt.setp(xtickNames, rotation=90, fontsize=7)
 plt.ylabel('Coverage (x)')
-plt.title('Comparison of Amplicon Depths per Sample')
+plt.title('Normalized Coverage Distribution per Sample')
 
 plt.show()

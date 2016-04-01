@@ -12,16 +12,18 @@ import numpy as np
 #Load files
 REFERENCE = "/media/partition/hg19/ucsc.hg19.fasta"
 #BAM_FILE = "/media/partition/Haloplex_Test_1_Late_January/Velona/15038519_S3.bam"
-INTERVALS_BED = "/media/partition/Haloplex/genes.bed"
+#INTERVALS_BED = "/media/partition/Haloplex/genes.bed"
 #BAM_FILE = "/media/partition/TST15_Test_1_Early_February/Base_Space/BRAF_15018040/Libraries/15018040_S1.bam"
-#INTERVALS_BED = "/media/partition/TST15_Test_1_Early_February/TST_15-A-manifest.bed"
+INTERVALS_BED = "/media/partition/TST15/TST_15-A-manifest.bed"
 #BAM_FILE = "/media/partition/15001181_S1.bam"
 #BAM_FILE = "/media/partition/Haloplex/Haloplex_Test_2_Mid_February/Velona/15028422_S6.bam"
-BAM_FILE = "/media/partition/Haloplex/Haloplex_Test_2_Mid_February/Velona/ECD_S9.bam"
+#BAM_FILE = "/media/partition/Haloplex/Haloplex_Test_2_Mid_February/Velona/ECD_S9.bam"
 #BAM_FILE = "/media/partition/Haloplex_Test_2_Mid_February/Velona/15051669_S1.bam"
 #BAM_FILE = "/media/partition/Haloplex_Test_2_Mid_February/Velona/15020056_S2.bam"
 #BAM_FILE = "/media/partition/Haloplex_Test_2_Mid_February/Velona/15010800_S3.bam"
 #BAM_FILE = "/media/partition/Haloplex_Test_2_Mid_February/Velona/15039121_S7.bam"
+BAM_FILE = "/media/partition/TST15/TST15_Test_1_Early_February/Base_Space/MixA/15001181_S1.bam"
+
 
 IntervalColumns = namedtuple('bed', ['chr', 'start', 'end'])
 intervals_list = []
@@ -50,11 +52,10 @@ else:
     print("ERROR: Provide an interval list (bed format)")
 
 samfile = pysam.AlignmentFile(BAM_FILE, "rb")
-total_mapped = samfile.count('chr7', 1, 159138663)
 chr_lengths = samfile.lengths
 chr_list = samfile.references
 
-chr_list = ['chrM','chr1', 'chr2', 'chr3', 'chr4', 'chr5', 'chr6', 'chr7', 'chr8', 'chr9', 'chr10', 'chr11', 'chr12', 'chr13', 'chr14', 'chr15', 'chr16', 'chr17', 'chr18', 'chr19', 'chr20', 'chr21', 'chr22', 'chrX', 'chrY']
+#chr_list = ['chrM','chr1', 'chr2', 'chr3', 'chr4', 'chr5', 'chr6', 'chr7', 'chr8',  'chr9', 'chr10', 'chr11', 'chr12', 'chr13', 'chr14', 'chr15', 'chr16', 'chr17', 'chr18', 'chr19', 'chr20', 'chr21', 'chr22', 'chrX', 'chrY']
 
 total_mapped_list = []
 on_target_list = []

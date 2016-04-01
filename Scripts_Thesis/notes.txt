@@ -1,0 +1,6 @@
+Questions & Notes
+
+TST15:
+  - Why amplicons outside of the 15 genes? Why call it TST>>>15<<< if other regions
+    are also covered? For instance: GUSB is more targeted than most other genes.
+  - Why coverage at chr22:17,052,911-17,053,178 even though it is not defined in manifest?

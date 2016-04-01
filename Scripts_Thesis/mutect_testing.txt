@@ -1,6 +1,6 @@
 java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
   -R /media/partition/hg19/ucsc.hg19.fasta \
-  -I:tumor /media/partition/TST15/TST15_Test_1_Early_February/Base_Space/15001181_S1.bam \
+  -I:tumor /media/partition/TST15/TST15_Test_1_Early_February/Base_Space/MixA/15001181_S1.bam \
   --dbsnp /media/partition/hg19/dbsnp_138.hg19.vcf \
   -L /media/partition/TST15/TST_15-A-manifest.bed \
   -o /media/partition/15001181_S1_tst15_mutect.txt \

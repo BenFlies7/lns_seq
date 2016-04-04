@@ -1,17 +1,908 @@
 java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
-  -R /media/partition/hg19/ucsc.hg19.fasta \
-  -I:tumor /media/partition/TST15/TST15_Test_1_Early_February/Base_Space/MixA/15001181_S1.bam \
-  --dbsnp /media/partition/hg19/dbsnp_138.hg19.vcf \
-  -L /media/partition/TST15/TST_15-A-manifest.bed \
-  -o /media/partition/15001181_S1_tst15_mutect.txt \
-  -vcf /media/partition/15001181_S1_tst15_mutect.vcf
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -S Silent \
+  -I:tumor /media/partition/tst15/MixA/15001181_S1.bam \
+  --dbsnp /media/partition/references/hg19_broadinstitute/dbsnp_138.hg19.vcf \
+  -L /media/partition/tst15/TST_15-A-manifest.bed \
+  -o /media/partition/work_dir/15001181_S1_tst15A_mutect.txt \
+  -vcf /media/partition/work_dir/15001181_S1_tst15A_mutect.vcf
+
+java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -S Silent \
+  -I:tumor /media/partition/tst15/MixA/15010800_S7.bam \
+  --dbsnp /media/partition/references/hg19_broadinstitute/dbsnp_138.hg19.vcf \
+  -L /media/partition/tst15/TST_15-A-manifest.bed \
+  -o /media/partition/work_dir/15010800_S7_tst15A_mutect.txt \
+  -vcf /media/partition/work_dir/15010800_S7_tst15A_mutect.vcf
+
+java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -S Silent \
+  -I:tumor /media/partition/tst15/MixA/15016513_S15.bam \
+  --dbsnp /media/partition/references/hg19_broadinstitute/dbsnp_138.hg19.vcf \
+  -L /media/partition/tst15/TST_15-A-manifest.bed \
+  -o /media/partition/work_dir/15016513_S15_tst15A_mutect.txt \
+  -vcf /media/partition/work_dir/15016513_S15_tst15A_mutect.vcf
+
+java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -S Silent \
+  -I:tumor /media/partition/tst15/MixA/15018040_S7.bam \
+  --dbsnp /media/partition/references/hg19_broadinstitute/dbsnp_138.hg19.vcf \
+  -L /media/partition/tst15/TST_15-A-manifest.bed \
+  -o /media/partition/work_dir/15018040_S7_tst15A_mutect.txt \
+  -vcf /media/partition/work_dir/15018040_S7_tst15A_mutect.vcf
+
+java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -S Silent \
+  -I:tumor /media/partition/tst15/MixA/15020056_S5.bam \
+  --dbsnp /media/partition/references/hg19_broadinstitute/dbsnp_138.hg19.vcf \
+  -L /media/partition/tst15/TST_15-A-manifest.bed \
+  -o /media/partition/work_dir/15020056_S5_tst15A_mutect.txt \
+  -vcf /media/partition/work_dir/15020056_S5_tst15A_mutect.vcf
+
+java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -S Silent \
+  -I:tumor /media/partition/tst15/MixA/15027722_S3.bam \
+  --dbsnp /media/partition/references/hg19_broadinstitute/dbsnp_138.hg19.vcf \
+  -L /media/partition/tst15/TST_15-A-manifest.bed \
+  -o /media/partition/work_dir/15027722_S3_tst15A_mutect.txt \
+  -vcf /media/partition/work_dir/15027722_S3_tst15A_mutect.vcf
+
+java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -S Silent \
+  -I:tumor /media/partition/tst15/MixA/15027722_S9.bam \
+  --dbsnp /media/partition/references/hg19_broadinstitute/dbsnp_138.hg19.vcf \
+  -L /media/partition/tst15/TST_15-A-manifest.bed \
+  -o /media/partition/work_dir/15027722_S9_tst15A_mutect.txt \
+  -vcf /media/partition/work_dir/15027722_S9_tst15A_mutect.vcf
+
+java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -S Silent \
+  -I:tumor /media/partition/tst15/MixA/15028422_S11.bam \
+  --dbsnp /media/partition/references/hg19_broadinstitute/dbsnp_138.hg19.vcf \
+  -L /media/partition/tst15/TST_15-A-manifest.bed \
+  -o /media/partition/work_dir/15028422_S11_tst15A_mutect.txt \
+  -vcf /media/partition/work_dir/15028422_S11_tst15A_mutect.vcf
+
+java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -S Silent \
+  -I:tumor /media/partition/tst15/MixA/15038519_S5.bam \
+  --dbsnp /media/partition/references/hg19_broadinstitute/dbsnp_138.hg19.vcf \
+  -L /media/partition/tst15/TST_15-A-manifest.bed \
+  -o /media/partition/work_dir/15038519_S5_tst15A_mutect.txt \
+  -vcf /media/partition/work_dir/15038519_S5_tst15A_mutect.vcf
+
+java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -S Silent \
+  -I:tumor /media/partition/tst15/MixA/15039121_S17.bam \
+  --dbsnp /media/partition/references/hg19_broadinstitute/dbsnp_138.hg19.vcf \
+  -L /media/partition/tst15/TST_15-A-manifest.bed \
+  -o /media/partition/work_dir/15039121_S17_tst15A_mutect.txt \
+  -vcf /media/partition/work_dir/15039121_S17_tst15A_mutect.vcf
+
+java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -S Silent \
+  -I:tumor /media/partition/tst15/MixA/15039718_S13.bam \
+  --dbsnp /media/partition/references/hg19_broadinstitute/dbsnp_138.hg19.vcf \
+  -L /media/partition/tst15/TST_15-A-manifest.bed \
+  -o /media/partition/work_dir/15039718_S13_tst15A_mutect.txt \
+  -vcf /media/partition/work_dir/15039718_S13_tst15A_mutect.vcf
+
+java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -S Silent \
+  -I:tumor /media/partition/tst15/MixA/15051669_S3.bam \
+  --dbsnp /media/partition/references/hg19_broadinstitute/dbsnp_138.hg19.vcf \
+  -L /media/partition/tst15/TST_15-A-manifest.bed \
+  -o /media/partition/work_dir/15051669_S3_tst15A_mutect.txt \
+  -vcf /media/partition/work_dir/15051669_S3_tst15A_mutect.vcf
+
+java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -S Silent \
+  -I:tumor /media/partition/tst15/MixA/15056672_S3.bam \
+  --dbsnp /media/partition/references/hg19_broadinstitute/dbsnp_138.hg19.vcf \
+  -L /media/partition/tst15/TST_15-A-manifest.bed \
+  -o /media/partition/work_dir/15056672_S3_tst15A_mutect.txt \
+  -vcf /media/partition/work_dir/15056672_S3_tst15A_mutect.vcf
+
+java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -S Silent \
+  -I:tumor /media/partition/tst15/MixA/15060478_S1.bam \
+  --dbsnp /media/partition/references/hg19_broadinstitute/dbsnp_138.hg19.vcf \
+  -L /media/partition/tst15/TST_15-A-manifest.bed \
+  -o /media/partition/work_dir/15060478_S1_tst15A_mutect.txt \
+  -vcf /media/partition/work_dir/15060478_S1_tst15A_mutect.vcf
+
+java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -S Silent \
+  -I:tumor /media/partition/tst15/MixA/15061857_S3.bam \
+  --dbsnp /media/partition/references/hg19_broadinstitute/dbsnp_138.hg19.vcf \
+  -L /media/partition/tst15/TST_15-A-manifest.bed \
+  -o /media/partition/work_dir/15061857_S3_tst15A_mutect.txt \
+  -vcf /media/partition/work_dir/15061857_S3_tst15A_mutect.vcf
+
+java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -S Silent \
+  -I:tumor /media/partition/tst15/MixA/16004596_S7.bam \
+  --dbsnp /media/partition/references/hg19_broadinstitute/dbsnp_138.hg19.vcf \
+  -L /media/partition/tst15/TST_15-A-manifest.bed \
+  -o /media/partition/work_dir/16004596_S7_tst15A_mutect.txt \
+  -vcf /media/partition/work_dir/16004596_S7_tst15A_mutect.vcf
+
+java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -S Silent \
+  -I:tumor /media/partition/tst15/MixA/16009521_S1.bam \
+  --dbsnp /media/partition/references/hg19_broadinstitute/dbsnp_138.hg19.vcf \
+  -L /media/partition/tst15/TST_15-A-manifest.bed \
+  -o /media/partition/work_dir/16009521_S1_tst15A_mutect.txt \
+  -vcf /media/partition/work_dir/16009521_S1_tst15A_mutect.vcf
+
+java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -S Silent \
+  -I:tumor /media/partition/tst15/MixA/16012404_S5.bam \
+  --dbsnp /media/partition/references/hg19_broadinstitute/dbsnp_138.hg19.vcf \
+  -L /media/partition/tst15/TST_15-A-manifest.bed \
+  -o /media/partition/work_dir/16012404_S5_tst15A_mutect.txt \
+  -vcf /media/partition/work_dir/16012404_S5_tst15A_mutect.vcf
+
+java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -S Silent \
+  -I:tumor /media/partition/tst15/MixA/16012453_S9.bam \
+  --dbsnp /media/partition/references/hg19_broadinstitute/dbsnp_138.hg19.vcf \
+  -L /media/partition/tst15/TST_15-A-manifest.bed \
+  -o /media/partition/work_dir/16012453_S9_tst15A_mutect.txt \
+  -vcf /media/partition/work_dir/16012453_S9_tst15A_mutect.vcf
+
+java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -S Silent \
+  -I:tumor /media/partition/tst15/MixB/15001181_S2.bam \
+  --dbsnp /media/partition/references/hg19_broadinstitute/dbsnp_138.hg19.vcf \
+  -L /media/partition/tst15/TST_15-B-manifest.bed \
+  -o /media/partition/work_dir/15001181_S2_tst15B_mutect.txt \
+  -vcf /media/partition/work_dir/15001181_S2_tst15B_mutect.vcf
+
+java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -S Silent \
+  -I:tumor /media/partition/tst15/MixB/15010800_S8.bam \
+  --dbsnp /media/partition/references/hg19_broadinstitute/dbsnp_138.hg19.vcf \
+  -L /media/partition/tst15/TST_15-B-manifest.bed \
+  -o /media/partition/work_dir/15010800_S8_tst15B_mutect.txt \
+  -vcf /media/partition/work_dir/15010800_S8_tst15B_mutect.vcf
+
+java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -S Silent \
+  -I:tumor /media/partition/tst15/MixB/15016513_S16.bam \
+  --dbsnp /media/partition/references/hg19_broadinstitute/dbsnp_138.hg19.vcf \
+  -L /media/partition/tst15/TST_15-B-manifest.bed \
+  -o /media/partition/work_dir/15016513_S16_tst15B_mutect.txt \
+  -vcf /media/partition/work_dir/15016513_S16_tst15B_mutect.vcf
+
+java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -S Silent \
+  -I:tumor /media/partition/tst15/MixB/15018040_S8.bam \
+  --dbsnp /media/partition/references/hg19_broadinstitute/dbsnp_138.hg19.vcf \
+  -L /media/partition/tst15/TST_15-B-manifest.bed \
+  -o /media/partition/work_dir/15018040_S8_tst15B_mutect.txt \
+  -vcf /media/partition/work_dir/15018040_S8_tst15B_mutect.vcf
+
+java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -S Silent \
+  -I:tumor /media/partition/tst15/MixB/15020056_S6.bam \
+  --dbsnp /media/partition/references/hg19_broadinstitute/dbsnp_138.hg19.vcf \
+  -L /media/partition/tst15/TST_15-B-manifest.bed \
+  -o /media/partition/work_dir/15020056_S6_tst15B_mutect.txt \
+  -vcf /media/partition/work_dir/15020056_S6_tst15B_mutect.vcf
+
+java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -S Silent \
+  -I:tumor /media/partition/tst15/MixB/15027722_S4.bam \
+  --dbsnp /media/partition/references/hg19_broadinstitute/dbsnp_138.hg19.vcf \
+  -L /media/partition/tst15/TST_15-B-manifest.bed \
+  -o /media/partition/work_dir/15027722_S4_tst15B_mutect.txt \
+  -vcf /media/partition/work_dir/15027722_S4_tst15B_mutect.vcf
+
+java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -S Silent \
+  -I:tumor /media/partition/tst15/MixB/15027722_S10.bam \
+  --dbsnp /media/partition/references/hg19_broadinstitute/dbsnp_138.hg19.vcf \
+  -L /media/partition/tst15/TST_15-B-manifest.bed \
+  -o /media/partition/work_dir/15027722_S10_tst15B_mutect.txt \
+  -vcf /media/partition/work_dir/15027722_S10_tst15B_mutect.vcf
+
+java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -S Silent \
+  -I:tumor /media/partition/tst15/MixB/15028422_S12.bam \
+  --dbsnp /media/partition/references/hg19_broadinstitute/dbsnp_138.hg19.vcf \
+  -L /media/partition/tst15/TST_15-B-manifest.bed \
+  -o /media/partition/work_dir/15028422_S12_tst15B_mutect.txt \
+  -vcf /media/partition/work_dir/15028422_S12_tst15B_mutect.vcf
+
+java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -S Silent \
+  -I:tumor /media/partition/tst15/MixB/15038519_S6.bam \
+  --dbsnp /media/partition/references/hg19_broadinstitute/dbsnp_138.hg19.vcf \
+  -L /media/partition/tst15/TST_15-B-manifest.bed \
+  -o /media/partition/work_dir/15038519_S6_tst15B_mutect.txt \
+  -vcf /media/partition/work_dir/15038519_S6_tst15B_mutect.vcf
+
+java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -S Silent \
+  -I:tumor /media/partition/tst15/MixB/15039121_S18.bam \
+  --dbsnp /media/partition/references/hg19_broadinstitute/dbsnp_138.hg19.vcf \
+  -L /media/partition/tst15/TST_15-B-manifest.bed \
+  -o /media/partition/work_dir/15039121_S18_tst15B_mutect.txt \
+  -vcf /media/partition/work_dir/15039121_S18_tst15B_mutect.vcf
+
+java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -S Silent \
+  -I:tumor /media/partition/tst15/MixB/15039718_S14.bam \
+  --dbsnp /media/partition/references/hg19_broadinstitute/dbsnp_138.hg19.vcf \
+  -L /media/partition/tst15/TST_15-B-manifest.bed \
+  -o /media/partition/work_dir/15039718_S14_tst15B_mutect.txt \
+  -vcf /media/partition/work_dir/15039718_S14_tst15B_mutect.vcf
+
+java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -S Silent \
+  -I:tumor /media/partition/tst15/MixB/15051669_S4.bam \
+  --dbsnp /media/partition/references/hg19_broadinstitute/dbsnp_138.hg19.vcf \
+  -L /media/partition/tst15/TST_15-B-manifest.bed \
+  -o /media/partition/work_dir/15051669_S4_tst15B_mutect.txt \
+  -vcf /media/partition/work_dir/15051669_S4_tst15B_mutect.vcf
+
+java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -S Silent \
+  -I:tumor /media/partition/tst15/MixB/15056672_S4.bam \
+  --dbsnp /media/partition/references/hg19_broadinstitute/dbsnp_138.hg19.vcf \
+  -L /media/partition/tst15/TST_15-B-manifest.bed \
+  -o /media/partition/work_dir/15056672_S4_tst15B_mutect.txt \
+  -vcf /media/partition/work_dir/15056672_S4_tst15B_mutect.vcf
+
+java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -S Silent \
+  -I:tumor /media/partition/tst15/MixB/15060478_S2.bam \
+  --dbsnp /media/partition/references/hg19_broadinstitute/dbsnp_138.hg19.vcf \
+  -L /media/partition/tst15/TST_15-B-manifest.bed \
+  -o /media/partition/work_dir/15060478_S2_tst15B_mutect.txt \
+  -vcf /media/partition/work_dir/15060478_S2_tst15B_mutect.vcf
+
+java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -S Silent \
+  -I:tumor /media/partition/tst15/MixB/15061857_S4.bam \
+  --dbsnp /media/partition/references/hg19_broadinstitute/dbsnp_138.hg19.vcf \
+  -L /media/partition/tst15/TST_15-B-manifest.bed \
+  -o /media/partition/work_dir/15061857_S4_tst15B_mutect.txt \
+  -vcf /media/partition/work_dir/15061857_S4_tst15B_mutect.vcf
+
+java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -S Silent \
+  -I:tumor /media/partition/tst15/MixB/16004596_S8.bam \
+  --dbsnp /media/partition/references/hg19_broadinstitute/dbsnp_138.hg19.vcf \
+  -L /media/partition/tst15/TST_15-B-manifest.bed \
+  -o /media/partition/work_dir/16004596_S8_tst15B_mutect.txt \
+  -vcf /media/partition/work_dir/16004596_S8_tst15B_mutect.vcf
+
+java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -S Silent \
+  -I:tumor /media/partition/tst15/MixB/16009521_S2.bam \
+  --dbsnp /media/partition/references/hg19_broadinstitute/dbsnp_138.hg19.vcf \
+  -L /media/partition/tst15/TST_15-B-manifest.bed \
+  -o /media/partition/work_dir/16009521_S2_tst15B_mutect.txt \
+  -vcf /media/partition/work_dir/16009521_S2_tst15B_mutect.vcf
+
+java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -S Silent \
+  -I:tumor /media/partition/tst15/MixB/16012404_S6.bam \
+  --dbsnp /media/partition/references/hg19_broadinstitute/dbsnp_138.hg19.vcf \
+  -L /media/partition/tst15/TST_15-B-manifest.bed \
+  -o /media/partition/work_dir/16012404_S6_tst15B_mutect.txt \
+  -vcf /media/partition/work_dir/16012404_S6_tst15B_mutect.vcf
+
+java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -S Silent \
+  -I:tumor /media/partition/tst15/MixB/16012453_S10.bam \
+  --dbsnp /media/partition/references/hg19_broadinstitute/dbsnp_138.hg19.vcf \
+  -L /media/partition/tst15/TST_15-B-manifest.bed \
+  -o /media/partition/work_dir/16012453_S10_tst15B_mutect.txt \
+  -vcf /media/partition/work_dir/16012453_S10_tst15B_mutect.vcf
+
+
+
+
+
+samtools mpileup \
+-f /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+-l /media/partition/tst15/TST_15-A-manifest.bed \
+/media/partition/tst15/MixB/15001181_S1.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--output-vcf 1 > /media/partition/work_dir/15001181_S1_tst15A_varscan.vcf
+
+samtools mpileup \
+-f /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+-l /media/partition/tst15/TST_15-A-manifest.bed \
+/media/partition/tst15/MixB/15010800_S7.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--output-vcf 1 > /media/partition/work_dir/15010800_S7_tst15A_varscan.vcf
+
+samtools mpileup \
+-f /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+-l /media/partition/tst15/TST_15-A-manifest.bed \
+/media/partition/tst15/MixB/15016513_S15.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--output-vcf 1 > /media/partition/work_dir/15016513_S15_tst15A_varscan.vcf
+
+samtools mpileup \
+-f /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+-l /media/partition/tst15/TST_15-A-manifest.bed \
+/media/partition/tst15/MixB/15018040_S7.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--output-vcf 1 > /media/partition/work_dir/15018040_S7_tst15A_varscan.vcf
+
+samtools mpileup \
+-f /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+-l /media/partition/tst15/TST_15-A-manifest.bed \
+/media/partition/tst15/MixB/15020056_S5.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--output-vcf 1 > /media/partition/work_dir/15020056_S5_tst15A_varscan.vcf
+
+samtools mpileup \
+-f /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+-l /media/partition/tst15/TST_15-A-manifest.bed \
+/media/partition/tst15/MixB/15027722_S3.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--output-vcf 1 > /media/partition/work_dir/15027722_S3_tst15A_varscan.vcf
+
+samtools mpileup \
+-f /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+-l /media/partition/tst15/TST_15-A-manifest.bed \
+/media/partition/tst15/MixB/15027722_S9.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--output-vcf 1 > /media/partition/work_dir/15027722_S9_tst15A_varscan.vcf
+
+samtools mpileup \
+-f /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+-l /media/partition/tst15/TST_15-A-manifest.bed \
+/media/partition/tst15/MixB/15028422_S11.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--output-vcf 1 > /media/partition/work_dir/15028422_S11_tst15A_varscan.vcf
+
+samtools mpileup \
+-f /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+-l /media/partition/tst15/TST_15-A-manifest.bed \
+/media/partition/tst15/MixB/15038519_S5.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--output-vcf 1 > /media/partition/work_dir/15038519_S5_tst15A_varscan.vcf
+
+samtools mpileup \
+-f /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+-l /media/partition/tst15/TST_15-A-manifest.bed \
+/media/partition/tst15/MixB/15039121_S17.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--output-vcf 1 > /media/partition/work_dir/15039121_S17_tst15A_varscan.vcf
+
+samtools mpileup \
+-f /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+-l /media/partition/tst15/TST_15-A-manifest.bed \
+/media/partition/tst15/MixB/15039718_S13.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--output-vcf 1 > /media/partition/work_dir/15039718_S13_tst15A_varscan.vcf
+
+samtools mpileup \
+-f /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+-l /media/partition/tst15/TST_15-A-manifest.bed \
+/media/partition/tst15/MixB/15051669_S3.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--output-vcf 1 > /media/partition/work_dir/15051669_S3_tst15A_varscan.vcf
+
+samtools mpileup \
+-f /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+-l /media/partition/tst15/TST_15-A-manifest.bed \
+/media/partition/tst15/MixB/15056672_S3.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--output-vcf 1 > /media/partition/work_dir/15056672_S3_tst15A_varscan.vcf
+
+samtools mpileup \
+-f /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+-l /media/partition/tst15/TST_15-A-manifest.bed \
+/media/partition/tst15/MixB/15060478_S3.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--output-vcf 1 > /media/partition/work_dir/15060478_S3_tst15A_varscan.vcf
+
+samtools mpileup \
+-f /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+-l /media/partition/tst15/TST_15-A-manifest.bed \
+/media/partition/tst15/MixB/15061857_S3.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--output-vcf 1 > /media/partition/work_dir/15061857_S3_tst15A_varscan.vcf
+
+samtools mpileup \
+-f /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+-l /media/partition/tst15/TST_15-A-manifest.bed \
+/media/partition/tst15/MixB/16004596_S7.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--output-vcf 1 > /media/partition/work_dir/16004596_S7_tst15A_varscan.vcf
+
+samtools mpileup \
+-f /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+-l /media/partition/tst15/TST_15-A-manifest.bed \
+/media/partition/tst15/MixB/16009521_S1.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--output-vcf 1 > /media/partition/work_dir/16009521_S1_tst15A_varscan.vcf
+
+samtools mpileup \
+-f /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+-l /media/partition/tst15/TST_15-A-manifest.bed \
+/media/partition/tst15/MixB/16012404_S5.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--output-vcf 1 > /media/partition/work_dir/16012404_S5_tst15A_varscan.vcf
+
+samtools mpileup \
+-f /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+-l /media/partition/tst15/TST_15-A-manifest.bed \
+/media/partition/tst15/MixB/16012453_S9.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--output-vcf 1 > /media/partition/work_dir/16012453_S9_tst15A_varscan.vcf
+
+
+
+
+samtools mpileup \
+-f /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+-l /media/partition/tst15/TST_15-B-manifest.bed \
+/media/partition/tst15/MixB/15001181_S2.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--output-vcf 1 > /media/partition/work_dir/15001181_S2_tst15B_varscan.vcf
+
+samtools mpileup \
+-f /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+-l /media/partition/tst15/TST_15-B-manifest.bed \
+/media/partition/tst15/MixB/15010800_S8.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--output-vcf 1 > /media/partition/work_dir/15010800_S8_tst15B_varscan.vcf
+
+samtools mpileup \
+-f /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+-l /media/partition/tst15/TST_15-B-manifest.bed \
+/media/partition/tst15/MixB/15016513_S16.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--output-vcf 1 > /media/partition/work_dir/15016513_S16_tst15B_varscan.vcf
+
+samtools mpileup \
+-f /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+-l /media/partition/tst15/TST_15-B-manifest.bed \
+/media/partition/tst15/MixB/15018040_S8.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--output-vcf 1 > /media/partition/work_dir/15018040_S8_tst15B_varscan.vcf
+
+samtools mpileup \
+-f /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+-l /media/partition/tst15/TST_15-B-manifest.bed \
+/media/partition/tst15/MixB/15020056_S6.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--output-vcf 1 > /media/partition/work_dir/15020056_S6_tst15B_varscan.vcf
+
+samtools mpileup \
+-f /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+-l /media/partition/tst15/TST_15-B-manifest.bed \
+/media/partition/tst15/MixB/15027722_S4.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--output-vcf 1 > /media/partition/work_dir/15027722_S4_tst15B_varscan.vcf
+
+samtools mpileup \
+-f /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+-l /media/partition/tst15/TST_15-B-manifest.bed \
+/media/partition/tst15/MixB/15027722_S10.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--output-vcf 1 > /media/partition/work_dir/15027722_S10_tst15B_varscan.vcf
+
+samtools mpileup \
+-f /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+-l /media/partition/tst15/TST_15-B-manifest.bed \
+/media/partition/tst15/MixB/15028422_S12.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--output-vcf 1 > /media/partition/work_dir/15028422_S12_tst15B_varscan.vcf
+
+samtools mpileup \
+-f /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+-l /media/partition/tst15/TST_15-B-manifest.bed \
+/media/partition/tst15/MixB/15038519_S6.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--output-vcf 1 > /media/partition/work_dir/15038519_S6_tst15B_varscan.vcf
+
+samtools mpileup \
+-f /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+-l /media/partition/tst15/TST_15-B-manifest.bed \
+/media/partition/tst15/MixB/15039121_S18.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--output-vcf 1 > /media/partition/work_dir/15039121_S18_tst15B_varscan.vcf
+
+samtools mpileup \
+-f /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+-l /media/partition/tst15/TST_15-B-manifest.bed \
+/media/partition/tst15/MixB/15039718_S14.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--output-vcf 1 > /media/partition/work_dir/15039718_S14_tst15B_varscan.vcf
+
+samtools mpileup \
+-f /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+-l /media/partition/tst15/TST_15-B-manifest.bed \
+/media/partition/tst15/MixB/15051669_S4.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--output-vcf 1 > /media/partition/work_dir/15051669_S4_tst15B_varscan.vcf
+
+samtools mpileup \
+-f /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+-l /media/partition/tst15/TST_15-B-manifest.bed \
+/media/partition/tst15/MixB/15056672_S4.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--output-vcf 1 > /media/partition/work_dir/15056672_S4_tst15B_varscan.vcf
+
+samtools mpileup \
+-f /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+-l /media/partition/tst15/TST_15-B-manifest.bed \
+/media/partition/tst15/MixB/15060478_S2.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--output-vcf 1 > /media/partition/work_dir/15060478_S2_tst15B_varscan.vcf
+
+samtools mpileup \
+-f /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+-l /media/partition/tst15/TST_15-B-manifest.bed \
+/media/partition/tst15/MixB/15061857_S4.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--output-vcf 1 > /media/partition/work_dir/15061857_S4_tst15B_varscan.vcf
+
+samtools mpileup \
+-f /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+-l /media/partition/tst15/TST_15-B-manifest.bed \
+/media/partition/tst15/MixB/16004596_S8.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--output-vcf 1 > /media/partition/work_dir/16004596_S8_tst15B_varscan.vcf
+
+samtools mpileup \
+-f /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+-l /media/partition/tst15/TST_15-B-manifest.bed \
+/media/partition/tst15/MixB/16009521_S2.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--output-vcf 1 > /media/partition/work_dir/16009521_S2_tst15B_varscan.vcf
+
+samtools mpileup \
+-f /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+-l /media/partition/tst15/TST_15-B-manifest.bed \
+/media/partition/tst15/MixB/16012404_S6.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--output-vcf 1 > /media/partition/work_dir/16012404_S6_tst15B_varscan.vcf
+
+samtools mpileup \
+-f /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+-l /media/partition/tst15/TST_15-B-manifest.bed \
+/media/partition/tst15/MixB/16012453_S10.bam \
+-d 1000000 \
+| java -jar ~/utils/VarScan.v2.3.9.jar mpileup2snp \
+--min-coverage 500 \
+--min-reads2 15 \
+--min-avg-qual 20 \
+--min-var-freq 0.03 \
+--output-vcf 1 > /media/partition/work_dir/16012453_S10_tst15B_varscan.vcf
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
+  -R /media/partition/references/hg19_surecall/hg19.fasta \
+  -S Silent \
+  -I:tumor /media/partition/15001181_S1_SureCall.bam \
+  --dbsnp /media/partition/references/hg19_broadinstitute/dbsnp_138.hg19.vcf \
+  -L /media/partition/hpx_csc/00100-1407755742_Regions.bed \
+  -o /media/partition/15001181_S1_surecall_mutect.txt \
+  -U ALLOW_SEQ_DICT_INCOMPATIBILITY \
+  -vcf /media/partition/15001181_S1_surecall_mutect.vcf
+
+
 
 
 #needs java 1.8
 
 java -jar ~/utils/picard-tools-2.0.1/picard.jar \
   AddOrReplaceReadGroups \
-  I=/media/partition/15001181_S1_L001_R1_001.fastq_22Mar2016_10_35_56_224.bam \
+  I=/media/partition/hpx_csc/15001181_S1_L001_R1_001.fastq_24Mar2016_13_23_00_691.bam \
   O=/media/partition/15001181_S1_SureCall.bam \
   RGLB=lib1 \
   RGPL=illumina \
@@ -19,84 +910,3 @@ java -jar ~/utils/picard-tools-2.0.1/picard.jar \
   RGSM=20
 
 samtools index /media/partition/15001181_S1_SureCall.bam
-
-#needs java 1.7
-
-###### Does not work yet with SureCall data ######
-java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
-  --input_file:tumor /media/partition/15001181_S1_SureCall.bam \
-  -S LENIENT \
-  -R /media/partition/hg19_surecall/hg19/hg19.fasta \
-  -L /media/partition/Haloplex/00100-1407755742_Regions.bed \
-  -o /media/partition/15001181_surecall_mutect.txt \
-  -vcf /media/partition/15001181_surecall_mutect.vcf
-
-
-
-
-
-
-###### TST15 ######
-java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
-  --input_file:tumor /media/partition/TST15/TST15_Test_1_Early_February/Base_Space/15001181_S1.bam \
-  -S LENIENT \
-  -R /media/partition/hg19/ucsc.hg19.fasta \
-  -L /media/partition/TST15/TST_15-A-manifest.bed \
-  -o /media/partition/15001181_S1_tst15_mutect.txt \
-  -vcf /media/partition/15001181_S1_tst15_mutect.vcf
-
-java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
-  --input_file:tumor /media/partition/TST15/TST15_Test_1_Early_February/Base_Space/15001181_S2.bam \
-  -S LENIENT \
-  -R /media/partition/hg19/ucsc.hg19.fasta \
-  -L /media/partition/TST15/TST_15-B-manifest.bed \
-  -o /media/partition/15001181_S2_tst15_mutect.txt \
-  -vcf /media/partition/15001181_S2_tst15_mutect.vcf
-
-java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
-  --input_file:tumor /media/partition/TST15/TST15_Test_1_Early_February/Base_Space/15018040_S1.bam \
-  -S LENIENT \
-  -R /media/partition/hg19/ucsc.hg19.fasta \
-  -L /media/partition/TST15/TST_15-A-manifest.bed \
-  -o /media/partition/15018040_S1_tst15_mutect.txt \
-  -vcf /media/partition/15018040_S1_tst15_mutect.vcf
-
-java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
-  --input_file:tumor /media/partition/TST15/TST15_Test_1_Early_February/Base_Space/15018040_S2.bam \
-  -S LENIENT \
-  -R /media/partition/hg19/ucsc.hg19.fasta \
-  -L /media/partition/TST15/TST_15-B-manifest.bed \
-  -o /media/partition/15018040_S2_tst15_mutect.txt \
-  -vcf /media/partition/15018040_S2_tst15_mutect.vcf
-
-java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
-  --input_file:tumor /media/partition/TST15/TST15_Test_1_Early_February/Base_Space/15038519_S1.bam \
-  -S LENIENT \
-  -R /media/partition/hg19/ucsc.hg19.fasta \
-  -L /media/partition/TST15/TST_15-A-manifest.bed \
-  -o /media/partition/15038519_S1_tst15_mutect.txt \
-  -vcf /media/partition/15038519_S1_tst15_mutect.vcf
-
-java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
-  --input_file:tumor /media/partition/TST15/TST15_Test_1_Early_February/Base_Space/15038519_S2.bam \
-  -S LENIENT \
-  -R /media/partition/hg19/ucsc.hg19.fasta \
-  -L /media/partition/TST15/TST_15-B-manifest.bed \
-  -o /media/partition/15038519_S2_tst15_mutect.txt \
-  -vcf /media/partition/15038519_S2_tst15_mutect.vcf
-
-java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
-  --input_file:tumor /media/partition/TST15/TST15_Test_1_Early_February/Base_Space/15061857_S1.bam \
-  -S LENIENT \
-  -R /media/partition/hg19/ucsc.hg19.fasta \
-  -L /media/partition/TST15/TST_15-A-manifest.bed \
-  -o /media/partition/15061857_S1_tst15_mutect.txt \
-  -vcf /media/partition/15061857_S1_tst15_mutect.vcf
-
-java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
-  --input_file:tumor /media/partition/TST15/TST15_Test_1_Early_February/Base_Space/15061857_S2.bam \
-  -S LENIENT \
-  -R /media/partition/hg19/ucsc.hg19.fasta \
-  -L /media/partition/TST15/TST_15-B-manifest.bed \
-  -o /media/partition/15061857_S2_tst15_mutect.txt \
-  -vcf /media/partition/15061857_S2_tst15_mutect.vcf

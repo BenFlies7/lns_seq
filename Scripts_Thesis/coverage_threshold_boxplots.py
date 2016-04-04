@@ -11,27 +11,17 @@ import numpy as np
 import matplotlib.pyplot as plt
 from operator import itemgetter
 
-
-
-#Load files
-#BAM_FILE = "/media/partition/Haloplex_Test_1_Late_January/Velona/15061857_S2.bam"
-#INTERVALS_BED = "/media/partition/Haloplex/00100-1407755742_Regions.bed"
-INTERVALS_BED = '/media/partition/targets/regions/TST_15-A-manifest.bed'
-#BAM_FILE = "/media/partition/Haloplex_Test_2_Mid_February/Velona/15028422_S6.bam"
-#BAM_FILE = "/media/partition/Haloplex_Test_2_Mid_February/Velona/ECD_S9.bam"
-#BAM_FILE = "/media/partition/Haloplex_Test_2_Mid_February/Velona/15051669_S1.bam"
-#BAM_FILE = "/media/partition/Haloplex_Test_2_Mid_February/Velona/15020056_S2.bam"
-#BAM_FILE = "/media/partition/Haloplex_Test_2_Mid_February/Velona/15010800_S3.bam"
-#BAM_FILE = "/media/partition/Haloplex_Test_2_Mid_February/Velona/15039121_S7.bam"
-
-#BAM_FILE = "/media/partition/TST15_Test_1_Early_February/Base_Space/BRAF_15018040/Libraries/15018040_S1.bam"
-#INTERVALS_BED = "/media/partition/TST15_Test_1_Early_February/TST_15-A-manifest.bed"
+#INTERVALS_BED = '/media/partition/tst15/TST_15-A-manifest.bed'
+#INTERVALS_BED = '/media/partition/tst15/TST_15-B-manifest.bed'
+INTERVALS_BED = '/media/partition/hpx_csc/00100-1407755742_Regions.bed'
 
 COVERAGE_THRESHOLD = 1000
 
 #directory = '/media/partition/Haloplex/Haloplex_Test_2_Mid_February/Velona'
 
-directory = '/media/partition/TST15/TST15_Test_1_Early_February/Base_Space/MixA/'
+#directory = '/media/partition/tst15/MixA'
+#directory = '/media/partition/tst15/MixB'
+directory = '/media/partition/hpx_csc'
 
 fig,ax1 = plt.subplots()
 plt.hold = True
@@ -108,9 +98,9 @@ for key, value in collected.items():
 for key, value in collected_sorted.items():
     boxes.append(collected_sorted[key]['Coverages'])
 
-plt.boxplot(boxes)
-xtickNames = plt.setp(ax1, xticklabels = collected_sorted.keys())
-plt.setp(xtickNames, rotation=90, fontsize=7)
+plt.boxplot(boxes,sym='')
+xtickNames = plt.setp(ax1, xticklabels = [])
+plt.setp(xtickNames, rotation=90, fontsize=14)
 plt.ylabel('Coverage (x)')
 plt.xlabel('Target ID')
 #plt.title('Comparison of Amplicon Depths Across Samples')

@@ -169,6 +169,8 @@ java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
   -o /media/partition/work_dir/16012453_S9_tst15A_mutect.txt \
   -vcf /media/partition/work_dir/16012453_S9_tst15A_mutect.vcf
 
+################################################################################
+
 java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
   -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
   -S Silent \

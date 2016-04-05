@@ -12,8 +12,8 @@ import numpy as np
 IntervalColumns = namedtuple('bed', ['chr', 'start', 'end', 'gene'])
 intervals_list = []
 
-INTERVALS_BED = "/media/partition/hpx_csc/00100-1407755742_Regions.bed"
-#INTERVALS_BED = '/media/partition/tst15/TST_15-A-manifest.bed'
+#INTERVALS_BED = "/media/partition/hpx_csc/00100-1407755742_Regions.bed"
+INTERVALS_BED = '/media/partition/tst15/TST_15-A-manifest.bed'
 
 if INTERVALS_BED:
     with open(INTERVALS_BED, "r") as fin:
@@ -33,8 +33,8 @@ if INTERVALS_BED:
 else:
     print("ERROR: Provide an interval list (bed format)")
 
-directory = '/media/partition/hpx_csc'
-#directory = '/media/partition/tst15/MixA'
+#directory = '/media/partition/hpx_csc'
+directory = '/media/partition/tst15/MixA'
 
 fig,ax1 = plt.subplots()
 plt.hold = True
@@ -64,7 +64,7 @@ for file in bam_file_list:
         cov_counter.append(float(interval[4]))
 
     cov_mean = np.mean(cov_counter)
-
+    cov_median = np.median(cov_counter)
     '''
     for interval in coverage_result:
         collected[basename]['Coverages'].append(float(interval[4]))

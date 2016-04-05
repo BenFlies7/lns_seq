@@ -1,0 +1,7 @@
+perl ~/utils/VarDict-master/vardict.pl \
+  -b /media/partition/tst15/MixA/15001181_S1.bam \
+  -G /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -f 0.03 \
+  -r 15 \
+  -q 20 \
+  -v

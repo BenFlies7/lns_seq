@@ -1,0 +1,155 @@
+java -jar ~/utils/picard-tools-2.0.1/picard.jar \
+  AddOrReplaceReadGroups \
+  I=/media/usb/hpx_csc_surecall_unique/15001181_S1_SureCall_unique.bam \
+  O=/media/usb/read_group_dir/15001181_S1_SureCall_unique_withRG.bam \
+  SORT_ORDER=coordinate \
+  RGLB=TODO \
+  RGPL=Illumina \
+  RGPU=TODO \
+  VALIDATION_STRINGENCY=LENIENT \
+  RGSM=15001181_S1
+
+samtools index /media/usb/read_group_dir/15001181_S1_SureCall_unique_withRG.bam /media/usb/read_group_dir/15001181_S1_SureCall_unique_withRG.bai
+
+java -jar ~/utils/picard-tools-2.0.1/picard.jar \
+  AddOrReplaceReadGroups \
+  I=/media/usb/hpx_csc_surecall_unique/15010800_S3_SureCall_unique.bam \
+  O=/media/usb/read_group_dir/15010800_S3_SureCall_unique_withRG.bam \
+  SORT_ORDER=coordinate \
+  RGLB=TODO \
+  RGPL=Illumina \
+  RGPU=TODO \
+  VALIDATION_STRINGENCY=LENIENT \
+  RGSM=15010800_S3
+
+samtools index /media/usb/read_group_dir/15010800_S3_SureCall_unique_withRG.bam /media/usb/read_group_dir/15010800_S3_SureCall_unique_withRG.bai
+
+java -jar ~/utils/picard-tools-2.0.1/picard.jar \
+  AddOrReplaceReadGroups \
+  I=/media/usb/hpx_csc_surecall_unique/15016513_S5_SureCall_unique.bam \
+  O=/media/usb/read_group_dir/15016513_S5_SureCall_unique_withRG.bam \
+  SORT_ORDER=coordinate \
+  RGLB=TODO \
+  RGPL=Illumina \
+  RGPU=TODO \
+  VALIDATION_STRINGENCY=LENIENT \
+  RGSM=15016513_S5
+
+samtools index /media/usb/read_group_dir/15016513_S5_SureCall_unique_withRG.bam /media/usb/read_group_dir/15016513_S5_SureCall_unique_withRG.bai
+
+java -jar ~/utils/picard-tools-2.0.1/picard.jar \
+  AddOrReplaceReadGroups \
+  I=/media/usb/hpx_csc_surecall_unique/15020056_S2_SureCall_unique.bam \
+  O=/media/usb/read_group_dir/15020056_S2_SureCall_unique_withRG.bam \
+  SORT_ORDER=coordinate \
+  RGLB=TODO \
+  RGPL=Illumina \
+  RGPU=TODO \
+  VALIDATION_STRINGENCY=LENIENT \
+  RGSM=15020056_S2
+
+samtools index /media/usb/read_group_dir/15020056_S2_SureCall_unique_withRG.bam /media/usb/read_group_dir/15020056_S2_SureCall_unique_withRG.bai
+
+java -jar ~/utils/picard-tools-2.0.1/picard.jar \
+  AddOrReplaceReadGroups \
+  I=/media/usb/hpx_csc_surecall_unique/15027722_S4_SureCall_unique.bam \
+  O=/media/usb/read_group_dir/15027722_S4_SureCall_unique_withRG.bam \
+  SORT_ORDER=coordinate \
+  RGLB=TODO \
+  RGPL=Illumina \
+  RGPU=TODO \
+  VALIDATION_STRINGENCY=LENIENT \
+  RGSM=15027722_S4
+
+samtools index /media/usb/read_group_dir/15027722_S4_SureCall_unique_withRG.bam /media/usb/read_group_dir/15027722_S4_SureCall_unique_withRG.bai
+
+java -jar ~/utils/picard-tools-2.0.1/picard.jar \
+  AddOrReplaceReadGroups \
+  I=/media/usb/hpx_csc_surecall_unique/15028422_S6_SureCall_unique.bam \
+  O=/media/usb/read_group_dir/15028422_S6_SureCall_unique_withRG.bam \
+  SORT_ORDER=coordinate \
+  RGLB=TODO \
+  RGPL=Illumina \
+  RGPU=TODO \
+  VALIDATION_STRINGENCY=LENIENT \
+  RGSM=15028422_S6
+
+samtools index /media/usb/read_group_dir/15028422_S6_SureCall_unique_withRG.bam /media/usb/read_group_dir/15028422_S6_SureCall_unique_withRG.bai
+
+java -jar ~/utils/picard-tools-2.0.1/picard.jar \
+  AddOrReplaceReadGroups \
+  I=/media/usb/hpx_csc_surecall_unique/15038519_S3_SureCall_unique.bam \
+  O=/media/usb/read_group_dir/15038519_S3_SureCall_unique_withRG.bam \
+  SORT_ORDER=coordinate \
+  RGLB=TODO \
+  RGPL=Illumina \
+  RGPU=TODO \
+  VALIDATION_STRINGENCY=LENIENT \
+  RGSM=15038519_S3
+
+samtools index /media/usb/read_group_dir/15038519_S3_SureCall_unique_withRG.bam /media/usb/read_group_dir/15038519_S3_SureCall_unique_withRG.bai
+
+java -jar ~/utils/picard-tools-2.0.1/picard.jar \
+  AddOrReplaceReadGroups \
+  I=/media/usb/hpx_csc_surecall_unique/15039121_S7_SureCall_unique.bam \
+  O=/media/usb/read_group_dir/15039121_S7_SureCall_unique_withRG.bam \
+  SORT_ORDER=coordinate \
+  RGLB=TODO \
+  RGPL=Illumina \
+  RGPU=TODO \
+  VALIDATION_STRINGENCY=LENIENT \
+  RGSM=15039121_S7
+
+samtools index /media/usb/read_group_dir/15039121_S7_SureCall_unique_withRG.bam /media/usb/read_group_dir/15039121_S7_SureCall_unique_withRG.bai
+
+java -jar ~/utils/picard-tools-2.0.1/picard.jar \
+  AddOrReplaceReadGroups \
+  I=/media/usb/hpx_csc_surecall_unique/15039718_S8_SureCall_unique.bam \
+  O=/media/usb/read_group_dir/15039718_S8_SureCall_unique_withRG.bam \
+  SORT_ORDER=coordinate \
+  RGLB=TODO \
+  RGPL=Illumina \
+  RGPU=TODO \
+  VALIDATION_STRINGENCY=LENIENT \
+  RGSM=15039718_S8
+
+samtools index /media/usb/read_group_dir/15039718_S8_SureCall_unique_withRG.bam /media/usb/read_group_dir/15039718_S8_SureCall_unique_withRG.bai
+
+java -jar ~/utils/picard-tools-2.0.1/picard.jar \
+  AddOrReplaceReadGroups \
+  I=/media/usb/hpx_csc_surecall_unique/15051669_S1_SureCall_unique.bam \
+  O=/media/usb/read_group_dir/15051669_S1_SureCall_unique_withRG.bam \
+  SORT_ORDER=coordinate \
+  RGLB=TODO \
+  RGPL=Illumina \
+  RGPU=TODO \
+  VALIDATION_STRINGENCY=LENIENT \
+  RGSM=15051669_S1
+
+samtools index /media/usb/read_group_dir/15051669_S1_SureCall_unique_withRG.bam /media/usb/read_group_dir/15051669_S1_SureCall_unique_withRG.bai
+
+java -jar ~/utils/picard-tools-2.0.1/picard.jar \
+  AddOrReplaceReadGroups \
+  I=/media/usb/hpx_csc_surecall_unique/15061857_S2_SureCall_unique.bam \
+  O=/media/usb/read_group_dir/15061857_S2_SureCall_unique_withRG.bam \
+  SORT_ORDER=coordinate \
+  RGLB=TODO \
+  RGPL=Illumina \
+  RGPU=TODO \
+  VALIDATION_STRINGENCY=LENIENT \
+  RGSM=15051669_S1
+
+samtools index /media/usb/read_group_dir/15061857_S2_SureCall_unique_withRG.bam /media/usb/read_group_dir/15061857_S2_SureCall_unique_withRG.bai
+
+java -jar ~/utils/picard-tools-2.0.1/picard.jar \
+  AddOrReplaceReadGroups \
+  I=/media/usb/hpx_csc_surecall_unique/15018040_S4_SureCall_unique.bam \
+  O=/media/usb/read_group_dir/15018040_S4_SureCall_unique_withRG.bam \
+  SORT_ORDER=coordinate \
+  RGLB=TODO \
+  RGPL=Illumina \
+  RGPU=TODO \
+  VALIDATION_STRINGENCY=LENIENT \
+  RGSM=15018040_S4
+
+samtools index /media/usb/read_group_dir/15018040_S4_SureCall_unique_withRG.bam /media/usb/read_group_dir/15018040_S4_SureCall_unique_withRG.bai

@@ -822,23 +822,15 @@ samtools mpileup \
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
+  -R /media/partition/references/hg19_tst15/hg19_tst15.fasta \
+  -S Silent \
+  -I:tumor /media/partition/tst15/MixA/15001181_S1.bam \
+  --dbsnp /media/partition/references/hg19_broadinstitute/dbsnp_138.hg19.vcf \
+  --cosmic /media/partition/references/CosmicCodingMuts.vcf \
+  -L /media/partition/tst15/TST_15-A-manifest.bed \
+  -o /media/partition/work_dir/15001181_S1_tst15A_mutect.txt \
+  -vcf /media/partition/work_dir/15001181_S1_tst15A_mutect.vcf
 
 
 
@@ -890,6 +882,38 @@ samtools mpileup \
 java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
   -R /media/partition/references/hg19_surecall/hg19.fasta \
   -S Silent \
+  -I:tumor /media/usb/hpx_csc_surecall_all/15001181_S1_SureCall_all_Sorted.bam \
+  --dbsnp /media/partition/references/hg19_broadinstitute/dbsnp_138.hg19.vcf \
+  -L /media/partition/hpx_csc/00100-1407755742_Regions.bed \
+  -o /media/partition/15001181_S1_surecall_mutect.txt \
+  -U ALLOW_SEQ_DICT_INCOMPATIBILITY \
+  -vcf /media/partition/15001181_S1_surecall_mutect.vcf
+
+
+java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
+  -R /media/partition/references/hg19_surecall/hg19.fasta \
+  -S Silent \
+  -I:tumor /media/partition/hpx_csc/15001181_S1_L001_R1_001.fastq_24Mar2016_13_23_00_691.bam \
+  --dbsnp /media/partition/references/hg19_broadinstitute/dbsnp_138.hg19.vcf \
+  -L /media/partition/hpx_csc/00100-1407755742_Regions.bed \
+  -o /media/partition/15001181_S1_surecall_mutect.txt \
+  -U ALLOW_SEQ_DICT_INCOMPATIBILITY \
+  -vcf /media/partition/15001181_S1_surecall_mutect.vcf
+
+
+
+
+
+
+
+
+
+
+
+
+java70 -jar ~/utils/mutect-1.1.7.jar -T MuTect \
+  -R /media/partition/references/hg19_surecall/hg19.fasta \
+  -S Silent \
   -I:tumor /media/partition/15001181_S1_SureCall.bam \
   --dbsnp /media/partition/references/hg19_broadinstitute/dbsnp_138.hg19.vcf \
   -L /media/partition/hpx_csc/00100-1407755742_Regions.bed \
@@ -906,9 +930,19 @@ java -jar ~/utils/picard-tools-2.0.1/picard.jar \
   AddOrReplaceReadGroups \
   I=/media/partition/hpx_csc/15001181_S1_L001_R1_001.fastq_24Mar2016_13_23_00_691.bam \
   O=/media/partition/15001181_S1_SureCall.bam \
-  RGLB=lib1 \
-  RGPL=illumina \
-  RGPU=unit1 \
-  RGSM=20
+  SORT_ORDER=coordinate \
+  RGLB=TODO \
+  RGPL=Illumina \
+  RGPU=TODO \
+  VALIDATION_STRINGENCY=LENIENT \
+  RGSM=15001181_S1
 
-samtools index /media/partition/15001181_S1_SureCall.bam
+samtools index /media/partition/15001181_S1_SureCall.bam /media/partition/15001181_S1_SureCall.bai
+
+java -XX:ParallelGCThreads=18 -Dvdb.System.loadLibrary=true -jar
+/home/christophe/workstation/external_apps/picard/dist/picard.jar
+AddOrReplaceReadGroups
+INPUT=/home/christophe/workstation/analysis_data/20160406_bwamem_preformatted_282675/assembly_velona.sam
+OUTPUT=/home/christophe/workstation/analysis_data/20160406_bwamem_preformatted_282675/sorted.sam
+SORT_ORDER=coordinate RGLB=TODO RGPL=Illumina RGPU=TODO
+VALIDATION_STRINGENCY=LENIENT RGSM=15010800_S3

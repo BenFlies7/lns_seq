@@ -1,8 +1,9 @@
 java -jar ~/utils/GenomeAnalysisTK.jar \
 -T CallableLoci \
--R /media/partition/hg19_surecall/hg19/hg19.fasta \
--I /media/usb/Haloplex_2_Mid_February/FASTQ_raw/15010800_S3_L001_R1_001.fastq_04Mar2016_11_53_24_15_Sorted.bam \
+-R /media/partition/references/hg19_broadinstitute/ucsc.hg19.fa \
+-I /media/partition/tst_velona/15001181_S1_velona.bam \
 --minDepth 500 \
+-U ALLOW_SEQ_DICT_INCOMPATIBILITY \
 -summary table.txt \
 -o callable_status.bed
 

@@ -14,10 +14,11 @@ from operator import itemgetter
 import pybedtools
 
 #Load BED file & define directory to parse over
-#INTERVALS_BED = "/media/partition/Haloplex/00100-1407755742_Regions.bed"
-INTERVALS_BED = '/media/partition/TST15/TST_15-A-manifest.bed'
-#DIRECTORY = '/media/partition/Haloplex/Haloplex_Test_2_Mid_February/Velona'
-DIRECTORY = '/media/usb/TST15_2_Late_February/BAM/'
+INTERVALS_BED = "/media/partition/00100-1407755742_Regions.bed"
+#INTERVALS_BED = '/media/partition/TST_15-B-manifest.bed'
+DIRECTORY = '/media/partition/hpx_csc_surecall_all'
+#DIRECTORY = '/media/partition/tst_basespace/MixA'
+#DIRECTORY = '/media/partition/tst_basespace/MixB'
 
 #Define coverage thresholds
 THRESHOLD_1 = 1
@@ -72,32 +73,32 @@ for file in bam_file_list:
         if interval[3] not in collected.keys():
             collected[interval[3].encode('ascii','ignore')] = {
             'Failed 1' : 0,
-            'Failed 1-50' : 0,
-            'Failed 50-100' : 0,
-            'Failed 100-250' : 0,
-            'Failed 250-500' : 0,
-            'Failed 500-1000' : 0
+            'Failed 50' : 0,
+            'Failed 100' : 0,
+            'Failed 250' : 0,
+            'Failed 500' : 0,
+            'Failed 1000' : 0
             }
 
         if float(interval[4]) <= THRESHOLD_1 :
             collected[interval[3]]['Failed 1'] += 1
         elif THRESHOLD_1 < float(interval[4]) <= THRESHOLD_2:
-            collected[interval[3]]['Failed 1-50'] += 1
+            collected[interval[3]]['Failed 50'] += 1
         elif THRESHOLD_2 < float(interval[4]) <= THRESHOLD_3:
-            collected[interval[3]]['Failed 50-100'] += 1
+            collected[interval[3]]['Failed 100'] += 1
         elif THRESHOLD_3 < float(interval[4]) <= THRESHOLD_4:
-            collected[interval[3]]['Failed 100-250'] += 1
+            collected[interval[3]]['Failed 250'] += 1
         elif THRESHOLD_4 < float(interval[4]) <= THRESHOLD_5:
-            collected[interval[3]]['Failed 250-500'] += 1
+            collected[interval[3]]['Failed 500'] += 1
         elif THRESHOLD_5 < float(interval[4]) <= THRESHOLD_6:
-            collected[interval[3]]['Failed 500-1000'] += 1
+            collected[interval[3]]['Failed 1000'] += 1
 print('Check for failed amplicons:... DONE')
 
 print('Write data into a CSV')
 #Write result in a CSV file
 with open('counter.csv',"w") as f_out:
     writer = csv.writer(f_out)
-    writer.writerow(['Amplicon', 'Failed 1', 'Failed 1-50', 'Failed 50-100', 'Failed 100-250', 'Failed 250-500', 'Failed 500-1000'])
+    writer.writerow(['Amplicon', 'Failed 1', 'Failed 50', 'Failed 100', 'Failed 250', 'Failed 500', 'Failed 1000'])
     for key, values in collected.items():
-        data = [key, values['Failed 1'], values['Failed 1-50'], values['Failed 50-100'], values['Failed 100-250'], values['Failed 250-500'], values['Failed 500-1000']]
+        data = [key, values['Failed 1'], values['Failed 50'], values['Failed 100'], values['Failed 250'], values['Failed 500'], values['Failed 1000']]
         writer.writerow(data)
